@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Explore Sioux Falls — Visitor Guide | SiouxFallsPros</title>
+  <meta name="description" content="Complete visitor guide to Sioux Falls, SD. Falls Park, museums, Native American heritage, outdoor activities, local radio stations and more. Your local guide to everything Sioux Falls."/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo"><div class="logo-icon"><svg width="26" height="26" viewBox="0 0 28 28" fill="none"><path d="M14 2L26 10V26H18V18H10V26H2V10L14 2Z" fill="white"/></svg></div><span>SiouxFalls<strong>Pros</strong></span></a>
+      <nav class="nav" id="mainNav">
+        <a href="index.html">Home</a><a href="categories.html">All Categories</a>
+        <a href="explore.html" class="active">Explore SF</a><a href="advertise.html">Advertise</a>
+        <a href="advertise.html" class="btn-nav">List Your Business</a>
+      </nav>
+      <button class="nav-toggle" onclick="toggleNav()"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <section style="background:linear-gradient(135deg,#1c2e1c,var(--forest));padding:64px 0;color:white">
+    <div class="container">
+      <div style="font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.6);margin-bottom:8px">Your Local Guide</div>
+      <h1 style="font-family:'Poppins',sans-serif;font-size:clamp(28px,4vw,48px);font-weight:900;margin-bottom:14px">Explore Sioux Falls</h1>
+      <p style="font-size:17px;color:rgba(255,255,255,.85);max-width:580px;line-height:1.7">Welcome to South Dakota's largest city. From the iconic falls to rich Native American heritage — here is everything worth knowing about Sioux Falls.</p>
+    </div>
+  </section>
+
+  <section style="padding:64px 0;background:var(--bg)">
+    <div class="container">
+
+      <!-- Must See -->
+      <div style="margin-bottom:56px">
+        <div class="section-eyebrow">Start Here</div>
+        <h2 style="font-family:'Poppins',sans-serif;font-size:28px;font-weight:800;margin-bottom:24px">Must-See Attractions</h2>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+          <a href="category.html?cat=explore&sub=fallspark" style="background:white;border:2px solid var(--border);border-radius:var(--radius);padding:24px;text-decoration:none;color:var(--text);display:block;transition:all .2s" onmouseover="this.style.borderColor='var(--amber)'" onmouseout="this.style.borderColor='var(--border)'">
+            <div style="font-size:48px;margin-bottom:12px">💧</div>
+            <h3 style="font-family:'Poppins',sans-serif;font-size:18px;font-weight:800;margin-bottom:6px">Falls Park</h3>
+            <p style="font-size:14px;color:var(--text-2);margin-bottom:10px">The Big Sioux River cascades over ancient pink quartzite rock formations right in the heart of the city. The most visited attraction in South Dakota after Mount Rushmore.</p>
+            <span style="display:inline-block;padding:3px 10px;background:var(--forest-light);color:var(--forest);border-radius:20px;font-size:11px;font-weight:700">✓ Free — Open Daily</span>
+          </a>
+          <a href="category.html?cat=explore&sub=museums" style="background:white;border:2px solid var(--border);border-radius:var(--radius);padding:24px;text-decoration:none;color:var(--text);display:block;transition:all .2s" onmouseover="this.style.borderColor='var(--amber)'" onmouseout="this.style.borderColor='var(--border)'">
+            <div style="font-size:48px;margin-bottom:12px">🏛️</div>
+            <h3 style="font-family:'Poppins',sans-serif;font-size:18px;font-weight:800;margin-bottom:6px">Washington Pavilion</h3>
+            <p style="font-size:14px;color:var(--text-2);margin-bottom:10px">Arts, sciences and performing arts under one roof. The Kirby Science Discovery Center, art galleries and the Husby Performing Arts Center all in one building.</p>
+            <span style="display:inline-block;padding:3px 10px;background:var(--amber-light);color:var(--amber-dark);border-radius:20px;font-size:11px;font-weight:700">Admission Required</span>
+          </a>
+          <a href="category.html?cat=explore&sub=nativeheritage" style="background:white;border:2px solid var(--border);border-radius:var(--radius);padding:24px;text-decoration:none;color:var(--text);display:block;transition:all .2s" onmouseover="this.style.borderColor='var(--amber)'" onmouseout="this.style.borderColor='var(--border)'">
+            <div style="font-size:48px;margin-bottom:12px">🦅</div>
+            <h3 style="font-family:'Poppins',sans-serif;font-size:18px;font-weight:800;margin-bottom:6px">Native American Heritage</h3>
+            <p style="font-size:14px;color:var(--text-2);margin-bottom:10px">South Dakota is home to nine Native American tribes. Discover the culture, art, history and traditions that have shaped this land for thousands of years.</p>
+            <span style="display:inline-block;padding:3px 10px;background:var(--forest-light);color:var(--forest);border-radius:20px;font-size:11px;font-weight:700">✓ Many Free</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Outdoor Activities -->
+      <div style="margin-bottom:56px">
+        <div class="section-eyebrow">Get Outside</div>
+        <h2 style="font-family:'Poppins',sans-serif;font-size:28px;font-weight:800;margin-bottom:24px">Outdoor Activities</h2>
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px">
+          <div style="background:white;border:2px solid var(--border);border-radius:var(--radius);padding:24px">
+            <h3 style="font-family:'Poppins',sans-serif;font-size:16px;font-weight:800;margin-bottom:8px">🚴 Bike the Big Sioux Trail</h3>
+            <p style="font-size:14px;color:var(--text-2)">Over 30 miles of paved trail running along the Big Sioux River. Perfect for biking, running or a casual walk through beautiful scenery.</p>
+          </div>
+          <div style="background:white;border:2px solid var(--border);border-radius:var(--radius);padding:24px">
+            <h3 style="font-family:'Poppins',sans-serif;font-size:16px;font-weight:800;margin-bottom:8px">🌲 Good Earth State Park</h3>
+            <p style="font-size:14px;color:var(--text-2)">A historic site with over 1,200 acres of natural beauty. Hiking trails, wildlife viewing and cultural history all in one park south of Sioux Falls.</p>
+          </div>
+          <div style="background:white;border:2px solid var(--border);border-radius:var(--radius);padding:24px">
+            <h3 style="font-family:'Poppins',sans-serif;font-size:16px;font-weight:800;margin-bottom:8px">🦌 Outdoor Campus</h3>
+            <p style="font-size:14px;color:var(--text-2)">Free hands-on programs teaching fishing, archery, wildlife ID and more. Great for families and kids. Free admission, free programming.</p>
+          </div>
+          <div style="background:white;border:2px solid var(--border);border-radius:var(--radius);padding:24px">
+            <h3 style="font-family:'Poppins',sans-serif;font-size:16px;font-weight:800;margin-bottom:8px">⛷️ Great Bear Recreation Park</h3>
+            <p style="font-size:14px;color:var(--text-2)">Skiing and snowboarding in winter, disc golf and outdoor fun in summer. The only ski area in eastern South Dakota right inside city limits.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day Trips from Sioux Falls -->
+      <div style="margin-bottom:56px">
+        <div class="section-eyebrow">Within 4 Hours</div>
+        <h2 style="font-family:'Poppins',sans-serif;font-size:28px;font-weight:800;margin-bottom:24px">Day Trips from Sioux Falls</h2>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+          <div style="background:white;border:2px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center">
+            <div style="font-size:36px;margin-bottom:8px">⛰️</div>
+            <h3 style="font-family:'Poppins',sans-serif;font-size:14px;font-weight:800;margin-bottom:4px">Mount Rushmore</h3>
+            <p style="font-size:12px;color:var(--text-3)">4 hours west — The iconic monument in the Black Hills</p>
+          </div>
+          <div style="background:white;border:2px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center">
+            <div style="font-size:36px;margin-bottom:8px">🦬</div>
+            <h3 style="font-family:'Poppins',sans-serif;font-size:14px;font-weight:800;margin-bottom:4px">Badlands National Park</h3>
+            <p style="font-size:12px;color:var(--text-3)">3.5 hours west — Stunning rock formations and wildlife</p>
+          </div>
+          <div style="background:white;border:2px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center">
+            <div style="font-size:36px;margin-bottom:8px">🌊</div>
+            <h3 style="font-family:'Poppins',sans-serif;font-size:14px;font-weight:800;margin-bottom:4px">Lake Poinsett</h3>
+            <p style="font-size:12px;color:var(--text-3)">1 hour north — Fishing, boating and camping</p>
+          </div>
+          <div style="background:white;border:2px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center">
+            <div style="font-size:36px;margin-bottom:8px">🐘</div>
+            <h3 style="font-family:'Poppins',sans-serif;font-size:14px;font-weight:800;margin-bottom:4px">Mitchell Corn Palace</h3>
+            <p style="font-size:12px;color:var(--text-3)">1.5 hours west — Unique South Dakota landmark</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Radio Stations -->
+      <div style="margin-bottom:56px">
+        <div class="section-eyebrow">Tune In</div>
+        <h2 style="font-family:'Poppins',sans-serif;font-size:28px;font-weight:800;margin-bottom:24px">Local Radio Stations</h2>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px" id="exploreRadio"></div>
+      </div>
+
+      <!-- Quick Facts -->
+      <div style="background:linear-gradient(135deg,#1c2e1c,var(--forest));border-radius:var(--radius-lg);padding:40px;color:white">
+        <h2 style="font-family:'Poppins',sans-serif;font-size:24px;font-weight:800;margin-bottom:24px">Quick Facts About Sioux Falls</h2>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px">
+          <div><div style="font-size:28px;font-weight:900;font-family:'Poppins',sans-serif;color:#f5c842">200K+</div><div style="font-size:13px;color:rgba(255,255,255,.7);margin-top:4px">Population — largest city in SD</div></div>
+          <div><div style="font-size:28px;font-weight:900;font-family:'Poppins',sans-serif;color:#f5c842">605</div><div style="font-size:13px;color:rgba(255,255,255,.7);margin-top:4px">Area code serving all of South Dakota</div></div>
+          <div><div style="font-size:28px;font-weight:900;font-family:'Poppins',sans-serif;color:#f5c842">57101</div><div style="font-size:13px;color:rgba(255,255,255,.7);margin-top:4px">Main zip code — 8 zip codes total</div></div>
+          <div><div style="font-size:28px;font-weight:900;font-family:'Poppins',sans-serif;color:#f5c842">0%</div><div style="font-size:13px;color:rgba(255,255,255,.7);margin-top:4px">State income tax in South Dakota</div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-bottom"><div class="container"><p style="text-align:center;color:rgba(255,255,255,.3);font-size:13px">© 2025 SiouxFallsPros.com — Sioux Falls, South Dakota</p></div></div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Render radio stations on explore page
+    document.addEventListener('DOMContentLoaded', () => {
+      const container = document.getElementById('exploreRadio');
+      if (container && typeof RADIO_STATIONS !== 'undefined') {
+        container.innerHTML = RADIO_STATIONS.map(s => `
+          <a href="${s.url}" target="_blank" rel="noopener" style="background:white;border:2px solid var(--border);border-radius:var(--radius-sm);padding:16px;text-decoration:none;color:var(--text);display:flex;align-items:center;gap:10px;transition:all .2s" onmouseover="this.style.borderColor='var(--amber)'" onmouseout="this.style.borderColor='var(--border)'">
+            <div style="font-size:28px">📻</div>
+            <div>
+              <div style="font-size:14px;font-weight:800">${s.name} ${s.freq}</div>
+              <div style="font-size:12px;color:var(--text-3)">${s.format}</div>
+            </div>
+          </a>`).join('');
+      }
+    });
+  </script>
+</body>
+</html>

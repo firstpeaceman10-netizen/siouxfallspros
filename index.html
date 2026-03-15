@@ -1,22 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="google-site-verification" content="google9d6f2ac273cdc168"/>
   <meta name="robots" content="index, follow"/>
   <meta name="geo.region" content="US-SD"/>
   <meta name="geo.placename" content="Sioux Falls, South Dakota"/>
-  <meta name="geo.position" content="43.5446;-96.7311"/>
-  <meta name="ICBM" content="43.5446, -96.7311"/>
-  <meta name="language" content="English"/>
-  <meta name="revisit-after" content="7 days"/>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Find trusted local professionals in Sioux Falls, SD. Top-rated plumbers, electricians, HVAC, dentists, restaurants and more."/>
+  <meta name="description" content="Find the best local professionals in Sioux Falls, SD. Top-rated plumbers, electricians, HVAC, dentists, restaurants and more. Only 4.5+ star businesses featured."/>
   <title>SiouxFallsPros — Connecting Sioux Falls With Local Professionals</title>
   <link rel="stylesheet" href="css/style.css"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet"/>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1KwC-xwi7TQI5DvEGU6LZ-FtX-nyWYvI&libraries=places" async defer></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1KwC-xwi7TQI5DvEGU6LZ-FtX-nyWYvI&libraries=places&callback=initMap" async defer></script>
 </head>
 <body>
 
@@ -25,393 +21,218 @@
     <div class="container header-inner">
       <a href="index.html" class="logo">
         <div class="logo-icon">
-          <svg width="26" height="26" viewBox="0 0 28 28" fill="none">
-            <path d="M14 2L26 10V26H18V18H10V26H2V10L14 2Z" fill="white"/>
-          </svg>
+          <svg width="26" height="26" viewBox="0 0 28 28" fill="none"><path d="M14 2L26 10V26H18V18H10V26H2V10L14 2Z" fill="white"/></svg>
         </div>
         <span>SiouxFalls<strong>Pros</strong></span>
       </a>
       <nav class="nav" id="mainNav">
         <a href="index.html" class="active">Home</a>
         <a href="categories.html">All Categories</a>
+        <a href="explore.html">Explore SF</a>
         <a href="advertise.html">Advertise</a>
         <a href="advertise.html" class="btn-nav">List Your Business</a>
       </nav>
-      <button class="nav-toggle" onclick="toggleNav()">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-toggle" onclick="toggleNav()"><span></span><span></span><span></span></button>
     </div>
   </header>
 
-  <!-- ── HERO — REAL PHOTO ──────────────────────────────────────── -->
+  <!-- ── HERO ───────────────────────────────────────────────────── -->
   <section class="hero">
     <div class="hero-scene">
       <img src="hero-bg.jpg" alt="South Dakota" class="hero-photo"/>
-        <defs>
-          <linearGradient id="skyGold" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#1a3a5c"/>
-            <stop offset="25%" stop-color="#2d6a9f"/>
-            <stop offset="55%" stop-color="#e8873a"/>
-            <stop offset="75%" stop-color="#f4b942"/>
-            <stop offset="100%" stop-color="#fdd17a"/>
-          </linearGradient>
-          <linearGradient id="sunGlow" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#fff7d4" stop-opacity="0.9"/>
-            <stop offset="100%" stop-color="#ffd54f" stop-opacity="0"/>
-          </linearGradient>
-          <linearGradient id="riverGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#4a90c4"/>
-            <stop offset="100%" stop-color="#2d6a9f"/>
-          </linearGradient>
-          <linearGradient id="fallsGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#87ceeb" stop-opacity="0.9"/>
-            <stop offset="100%" stop-color="#4a90c4" stop-opacity="0.7"/>
-          </linearGradient>
-          <linearGradient id="rockGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#c47a5a"/>
-            <stop offset="100%" stop-color="#8b4513"/>
-          </linearGradient>
-          <linearGradient id="grassGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#5a8a3c"/>
-            <stop offset="100%" stop-color="#3d6b28"/>
-          </linearGradient>
-          <filter id="glow">
-            <feGaussianBlur stdDeviation="8" result="blur"/>
-            <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-          </filter>
-          <filter id="softBlur">
-            <feGaussianBlur stdDeviation="3"/>
-          </filter>
-          <radialGradient id="sunRay" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#fff7d4" stop-opacity="0.8"/>
-            <stop offset="100%" stop-color="#ffd54f" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
-
-        <!-- Sky -->
-        <rect width="1400" height="560" fill="url(#skyGold)"/>
-
-        <!-- Sun rising - warm golden glow -->
-        <circle cx="700" cy="200" r="55" fill="#FFF176" opacity="0.95" filter="url(#glow)"/>
-        <circle cx="700" cy="200" r="80" fill="url(#sunRay)" opacity="0.5"/>
-        <circle cx="700" cy="200" r="120" fill="url(#sunRay)" opacity="0.3"/>
-        <circle cx="700" cy="200" r="200" fill="url(#sunRay)" opacity="0.15"/>
-
-        <!-- Sunrise rays -->
-        <line x1="700" y1="145" x2="700" y2="80"  stroke="#FFF176" stroke-width="2" opacity="0.4"/>
-        <line x1="745" y1="158" x2="790" y2="105" stroke="#FFF176" stroke-width="2" opacity="0.4"/>
-        <line x1="757" y1="200" x2="820" y2="200" stroke="#FFF176" stroke-width="2" opacity="0.4"/>
-        <line x1="745" y1="242" x2="790" y2="295" stroke="#FFF176" stroke-width="2" opacity="0.3"/>
-        <line x1="655" y1="158" x2="610" y2="105" stroke="#FFF176" stroke-width="2" opacity="0.4"/>
-        <line x1="643" y1="200" x2="580" y2="200" stroke="#FFF176" stroke-width="2" opacity="0.4"/>
-
-        <!-- Clouds - golden tinted -->
-        <ellipse cx="250" cy="120" rx="110" ry="35" fill="#fff3cd" opacity="0.7"/>
-        <ellipse cx="320" cy="105" rx="80" ry="28" fill="#fff3cd" opacity="0.8"/>
-        <ellipse cx="180" cy="115" rx="70" ry="25" fill="#ffe082" opacity="0.6"/>
-        <ellipse cx="1100" cy="90" rx="120" ry="38" fill="#fff3cd" opacity="0.65"/>
-        <ellipse cx="1180" cy="75" rx="90" ry="30" fill="#ffe082" opacity="0.7"/>
-        <ellipse cx="1050" cy="100" rx="65" ry="22" fill="#fff3cd" opacity="0.5"/>
-        <ellipse cx="500" cy="80" rx="85" ry="28" fill="#fff3cd" opacity="0.5"/>
-        <ellipse cx="900" cy="110" rx="75" ry="24" fill="#ffe082" opacity="0.5"/>
-
-        <!-- Mount Rushmore silhouette in distance - hazy/distant -->
-        <g opacity="0.25" filter="url(#softBlur)">
-          <!-- Mountain base -->
-          <polygon points="820,285 860,240 900,260 940,230 980,255 1020,235 1060,250 1100,285" fill="#5d4037"/>
-          <!-- Washington face rough silhouette -->
-          <ellipse cx="870" cy="248" rx="18" ry="22" fill="#5d4037"/>
-          <rect x="858" y="255" width="24" height="18" fill="#5d4037"/>
-          <!-- Jefferson -->
-          <ellipse cx="918" cy="242" rx="16" ry="20" fill="#5d4037"/>
-          <rect x="906" y="248" width="22" height="16" fill="#5d4037"/>
-          <!-- Roosevelt -->
-          <ellipse cx="962" cy="247" rx="15" ry="18" fill="#5d4037"/>
-          <rect x="950" y="252" width="20" height="15" fill="#5d4037"/>
-          <!-- Lincoln -->
-          <ellipse cx="1005" cy="244" rx="17" ry="21" fill="#5d4037"/>
-          <rect x="993" y="252" width="22" height="17" fill="#5d4037"/>
-          <!-- Mountain mass -->
-          <polygon points="820,285 840,265 870,275 900,262 930,270 960,258 990,265 1020,255 1050,262 1080,258 1100,285" fill="#6d4c41"/>
-        </g>
-
-        <!-- Distant city skyline silhouette - Sioux Falls -->
-        <g opacity="0.4">
-          <!-- Buildings in background -->
-          <rect x="420" y="265" width="18" height="55" fill="#1a3a5c"/>
-          <rect x="445" y="255" width="22" height="65" fill="#1e4976"/>
-          <rect x="472" y="270" width="16" height="50" fill="#1a3a5c"/>
-          <rect x="492" y="248" width="28" height="72" fill="#1e4976"/>
-          <!-- Tallest building -->
-          <rect x="524" y="235" width="32" height="85" fill="#243b6e"/>
-          <rect x="530" y="228" width="20" height="12" fill="#243b6e"/>
-          <rect x="538" y="220" width="4" height="12" fill="#243b6e"/>
-          <rect x="560" y="255" width="24" height="65" fill="#1a3a5c"/>
-          <rect x="588" y="262" width="18" height="58" fill="#1e4976"/>
-          <rect x="610" y="250" width="26" height="70" fill="#1a3a5c"/>
-          <!-- Windows glowing gold -->
-          <rect x="497" y="255" width="4" height="5" fill="#ffd54f" opacity="0.8"/>
-          <rect x="505" y="255" width="4" height="5" fill="#ffd54f" opacity="0.8"/>
-          <rect x="497" y="265" width="4" height="5" fill="#ffd54f" opacity="0.6"/>
-          <rect x="528" y="242" width="4" height="5" fill="#ffd54f" opacity="0.9"/>
-          <rect x="536" y="242" width="4" height="5" fill="#ffd54f" opacity="0.7"/>
-          <rect x="544" y="242" width="4" height="5" fill="#ffd54f" opacity="0.9"/>
-          <rect x="528" y="252" width="4" height="5" fill="#ffd54f" opacity="0.6"/>
-          <rect x="536" y="252" width="4" height="5" fill="#ffd54f" opacity="0.8"/>
-        </g>
-
-        <!-- Treeline left - dense green trees -->
-        <g>
-          <ellipse cx="50"  cy="355" rx="55" ry="65" fill="#2d5a1b"/>
-          <ellipse cx="50"  cy="340" rx="42" ry="50" fill="#3d7a28"/>
-          <ellipse cx="110" cy="345" rx="60" ry="70" fill="#2d5a1b"/>
-          <ellipse cx="110" cy="328" rx="48" ry="55" fill="#4a8c32"/>
-          <ellipse cx="175" cy="350" rx="52" ry="62" fill="#336620"/>
-          <ellipse cx="175" cy="335" rx="40" ry="48" fill="#3d7a28"/>
-          <ellipse cx="230" cy="355" rx="48" ry="58" fill="#2d5a1b"/>
-          <ellipse cx="230" cy="340" rx="36" ry="45" fill="#4a8c32"/>
-          <ellipse cx="280" cy="360" rx="44" ry="54" fill="#336620"/>
-        </g>
-
-        <!-- Treeline right -->
-        <g>
-          <ellipse cx="1150" cy="355" rx="55" ry="65" fill="#2d5a1b"/>
-          <ellipse cx="1150" cy="338" rx="42" ry="50" fill="#3d7a28"/>
-          <ellipse cx="1210" cy="345" rx="58" ry="68" fill="#336620"/>
-          <ellipse cx="1210" cy="328" rx="45" ry="52" fill="#4a8c32"/>
-          <ellipse cx="1265" cy="352" rx="50" ry="60" fill="#2d5a1b"/>
-          <ellipse cx="1265" cy="337" rx="38" ry="46" fill="#3d7a28"/>
-          <ellipse cx="1320" cy="358" rx="52" ry="62" fill="#336620"/>
-          <ellipse cx="1320" cy="342" rx="40" ry="48" fill="#4a8c32"/>
-          <ellipse cx="1370" cy="355" rx="48" ry="58" fill="#2d5a1b"/>
-        </g>
-
-        <!-- Pink quartzite rock formations -->
-        <!-- Left rocks -->
-        <polygon points="280,420 320,370 360,380 390,360 420,375 430,420" fill="#c47a5a"/>
-        <polygon points="280,420 320,370 360,380 390,360 420,375 430,420" fill="url(#rockGrad)" opacity="0.8"/>
-        <polygon points="290,420 328,375 355,385 385,368 415,380 428,420" fill="#d4896a" opacity="0.4"/>
-
-        <!-- Right rocks -->
-        <polygon points="970,420 1000,365 1040,375 1075,358 1110,372 1140,390 1150,420" fill="#c47a5a"/>
-        <polygon points="970,420 1000,365 1040,375 1075,358 1110,372 1140,390 1150,420" fill="url(#rockGrad)" opacity="0.8"/>
-
-        <!-- Center rocks at falls -->
-        <polygon points="560,420 590,385 620,395 650,378 685,390 700,400 720,388 750,395 780,380 810,390 840,420" fill="#b86b4a"/>
-        <polygon points="560,420 590,385 620,395 650,378 685,390 700,400 720,388 750,395 780,380 810,390 840,420" fill="url(#rockGrad)" opacity="0.7"/>
-
-        <!-- The Falls - Big Sioux River waterfalls -->
-        <!-- Main waterfall cascade -->
-        <rect x="580" y="370" width="240" height="8" fill="#a8d8ea" opacity="0.9" rx="2"/>
-        <!-- Water cascading down -->
-        <rect x="590" y="378" width="12" height="35" fill="url(#fallsGrad)" opacity="0.85" rx="1"/>
-        <rect x="608" y="375" width="10" height="40" fill="url(#fallsGrad)" opacity="0.9" rx="1"/>
-        <rect x="622" y="380" width="14" height="32" fill="url(#fallsGrad)" opacity="0.8" rx="1"/>
-        <rect x="642" y="372" width="11" height="42" fill="url(#fallsGrad)" opacity="0.85" rx="1"/>
-        <rect x="658" y="378" width="13" height="36" fill="url(#fallsGrad)" opacity="0.9" rx="1"/>
-        <rect x="676" y="370" width="10" height="44" fill="url(#fallsGrad)" opacity="0.85" rx="1"/>
-        <rect x="691" y="375" width="14" height="38" fill="url(#fallsGrad)" opacity="0.8" rx="1"/>
-        <rect x="710" y="372" width="11" height="41" fill="url(#fallsGrad)" opacity="0.9" rx="1"/>
-        <rect x="726" y="378" width="13" height="35" fill="url(#fallsGrad)" opacity="0.85" rx="1"/>
-        <rect x="744" y="374" width="10" height="39" fill="url(#fallsGrad)" opacity="0.8" rx="1"/>
-        <rect x="758" y="380" width="14" height="33" fill="url(#fallsGrad)" opacity="0.85" rx="1"/>
-        <rect x="777" y="376" width="11" height="37" fill="url(#fallsGrad)" opacity="0.9" rx="1"/>
-
-        <!-- Mist/spray at base of falls -->
-        <ellipse cx="695" cy="418" rx="90" ry="12" fill="white" opacity="0.35" filter="url(#softBlur)"/>
-        <ellipse cx="695" cy="420" rx="70" ry="8" fill="white" opacity="0.25" filter="url(#softBlur)"/>
-
-        <!-- River flowing -->
-        <rect x="0"    y="415" width="1400" height="145" fill="url(#riverGrad)"/>
-        <!-- River shimmer/reflections -->
-        <ellipse cx="200"  cy="435" rx="60"  ry="6"  fill="#87ceeb" opacity="0.3"/>
-        <ellipse cx="400"  cy="445" rx="80"  ry="5"  fill="#87ceeb" opacity="0.25"/>
-        <ellipse cx="700"  cy="430" rx="100" ry="7"  fill="#ffd54f" opacity="0.2"/>
-        <ellipse cx="1000" cy="440" rx="75"  ry="5"  fill="#87ceeb" opacity="0.25"/>
-        <ellipse cx="1250" cy="435" rx="65"  ry="6"  fill="#87ceeb" opacity="0.3"/>
-        <!-- Sun reflection on water -->
-        <ellipse cx="700" cy="450" rx="120" ry="15" fill="#ffd54f" opacity="0.15" filter="url(#softBlur)"/>
-
-        <!-- Grass banks -->
-        <ellipse cx="0"    cy="418" rx="350" ry="30" fill="#4a7c2f"/>
-        <ellipse cx="1400" cy="418" rx="350" ry="30" fill="#4a7c2f"/>
-        <rect x="0"    y="410" width="300" height="15" fill="#5a8c38"/>
-        <rect x="1100" y="410" width="300" height="15" fill="#5a8c38"/>
-
-        <!-- Falls Park bridge silhouette -->
-        <rect x="580" y="358" width="240" height="14" fill="#8b6914" rx="3"/>
-        <rect x="595" y="344" width="8"   height="18" fill="#8b6914"/>
-        <rect x="620" y="344" width="8"   height="18" fill="#8b6914"/>
-        <rect x="645" y="344" width="8"   height="18" fill="#8b6914"/>
-        <rect x="670" y="344" width="8"   height="18" fill="#8b6914"/>
-        <rect x="695" y="344" width="8"   height="18" fill="#8b6914"/>
-        <rect x="720" y="344" width="8"   height="18" fill="#8b6914"/>
-        <rect x="745" y="344" width="8"   height="18" fill="#8b6914"/>
-        <rect x="770" y="344" width="8"   height="18" fill="#8b6914"/>
-        <line x1="590" y1="344" x2="780" y2="344" stroke="#8b6914" stroke-width="3"/>
-
-        <!-- Ground foreground -->
-        <rect x="0" y="500" width="1400" height="60" fill="#3d6b28"/>
-        <rect x="0" y="510" width="1400" height="50" fill="#4a7c2f"/>
-
-        <!-- Foreground flowers/grass detail -->
-        <circle cx="100" cy="508" r="5" fill="#ffcc02" opacity="0.8"/>
-        <circle cx="150" cy="505" r="4" fill="#ff6b6b" opacity="0.8"/>
-        <circle cx="200" cy="508" r="5" fill="#ffcc02" opacity="0.7"/>
-        <circle cx="1200" cy="507" r="5" fill="#ff6b6b" opacity="0.8"/>
-        <circle cx="1250" cy="504" r="4" fill="#ffcc02" opacity="0.7"/>
-        <circle cx="1300" cy="508" r="5" fill="#ff6b6b" opacity="0.8"/>
-      </svg>
     </div>
-
     <div class="hero-overlay"></div>
-
     <div class="container hero-content">
-      <div class="hero-badge">
-        <span>📍</span> Sioux Falls, South Dakota's Local Directory
-      </div>
+      <div class="hero-badge">📍 Sioux Falls, South Dakota's Local Directory</div>
       <h1>Connecting Sioux Falls<br/><span>With Local Professionals</span></h1>
-      <p>Find trusted, top-rated local pros for your home, car, health and more.<br/>Real businesses. Real reviews. Real Sioux Falls.</p>
+      <p>Find trusted, top-rated local pros for your home, car, health and more. Real businesses. Real reviews. Real Sioux Falls.</p>
 
-      <!-- Dropdown search -->
+      <!-- Location ping -->
+      <div class="location-bar" id="locationBar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <input type="text" id="locationInput" placeholder="Enter your address or zip code…"/>
+        <button class="location-ping-btn" onclick="pingLocation()">
+          📍 Find What's Near Me
+        </button>
+      </div>
+
+      <!-- Location results -->
+      <div class="location-results" id="locationResults">
+        <h3 id="locationResultsTitle">📍 Near You</h3>
+        <div class="location-toggle">
+          <button class="loc-toggle-btn active" onclick="switchLocTab('businesses',this)">🏢 Businesses</button>
+          <button class="loc-toggle-btn" onclick="switchLocTab('attractions',this)">🎡 Attractions</button>
+          <button class="loc-toggle-btn" onclick="switchLocTab('both',this)">✨ Both</button>
+        </div>
+        <div class="location-result-grid" id="locationResultGrid"></div>
+      </div>
+
+      <!-- Search -->
       <div class="search-wrapper">
         <div class="search-box" id="searchBox">
           <div class="search-field search-field-left">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-            <input
-              type="text"
-              id="serviceInput"
-              placeholder="What do you need? Click or type…"
-              onkeyup="filterDropdown(this.value)"
-              onfocus="openDropdown()"
-              autocomplete="off"
-            />
+            <input type="text" id="serviceInput" placeholder="What do you need? Click or type…" onkeyup="filterDropdown(this.value)" onfocus="openDropdown()" autocomplete="off"/>
             <button class="search-clear" id="clearBtn" onclick="clearSearch()" style="display:none">×</button>
           </div>
           <div class="search-divider"></div>
           <div class="search-field">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <input type="text" id="locationInput" placeholder="Sioux Falls, SD" />
+            <input type="text" placeholder="Sioux Falls, SD"/>
           </div>
           <button class="search-btn" onclick="doSearch()">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
             Find Pros
           </button>
         </div>
-
-        <!-- Dropdown menu -->
         <div class="search-dropdown" id="searchDropdown" style="display:none">
-          <div class="dropdown-inner" id="dropdownInner">
-            <!-- Generated by JS -->
-          </div>
+          <div class="dropdown-inner" id="dropdownInner"></div>
         </div>
       </div>
 
       <div class="search-tags">
-        <span>Quick find:</span>
+        <span>Quick:</span>
         <a href="category.html?cat=home&sub=plumbers">🚿 Plumbers</a>
         <a href="category.html?cat=health&sub=dentists">🦷 Dentists</a>
         <a href="category.html?cat=auto&sub=mechanics">🔧 Mechanics</a>
         <a href="category.html?cat=food&sub=restaurants">🍽️ Restaurants</a>
-        <a href="category.html?cat=home&sub=hvac">❄️ HVAC</a>
-        <a href="category.html?cat=home&sub=garage">🚪 Garage Doors</a>
+        <a href="category.html?cat=explore&sub=fallspark">💧 Falls Park</a>
+        <a href="category.html?cat=entertainment&sub=escape">🔐 Escape Rooms</a>
       </div>
     </div>
   </section>
 
-  
-
-  <!-- ── MAIN CATEGORIES ────────────────────────────────────────── -->
+  <!-- ── BUSINESS CATEGORIES ────────────────────────────────────── -->
   <section class="main-cats-section">
     <div class="container">
       <div class="section-header">
-        <h2>Browse by Category</h2>
-        <p>Click any category to see all services and top-rated pros</p>
+        <div class="section-eyebrow">Local Businesses</div>
+        <h2>Find a Local Professional</h2>
+        <p>Click any category to browse top-rated pros in Sioux Falls</p>
       </div>
       <div class="main-cat-grid">
+        <a href="subcategory.html?cat=home"          class="main-cat-card" style="--accent:#1a5f9e"><div class="cat-emoji">🏠</div><h3>Home Services</h3><p>Plumbers, Electricians, HVAC & more</p><span class="cat-count">18 services</span></a>
+        <a href="subcategory.html?cat=auto"          class="main-cat-card" style="--accent:#c8773a"><div class="cat-emoji">🚗</div><h3>Auto</h3><p>Mechanics, Body Shops, Tires & more</p><span class="cat-count">5 services</span></a>
+        <a href="subcategory.html?cat=health"        class="main-cat-card" style="--accent:#3a6b3a"><div class="cat-emoji">⚕️</div><h3>Health & Wellness</h3><p>Dentists, Doctors, Chiropractors & more</p><span class="cat-count">7 services</span></a>
+        <a href="subcategory.html?cat=food"          class="main-cat-card" style="--accent:#c8773a"><div class="cat-emoji">🍕</div><h3>Food & Dining</h3><p>Restaurants, Coffee, Bakeries & more</p><span class="cat-count">10 services</span></a>
+        <a href="subcategory.html?cat=beauty"        class="main-cat-card" style="--accent:#8b6f5e"><div class="cat-emoji">💇</div><h3>Beauty & Care</h3><p>Salons, Barbershops, Spas & more</p><span class="cat-count">6 services</span></a>
+        <a href="subcategory.html?cat=fitness"       class="main-cat-card" style="--accent:#3a6b3a"><div class="cat-emoji">💪</div><h3>Fitness & Wellness</h3><p>Gyms, Yoga, Personal Trainers & more</p><span class="cat-count">6 services</span></a>
+        <a href="subcategory.html?cat=entertainment" class="main-cat-card" style="--accent:#c8773a"><div class="cat-emoji">🎪</div><h3>Entertainment</h3><p>Venues, Escape Rooms, Arcades & more</p><span class="cat-count">10 services</span></a>
+        <a href="subcategory.html?cat=shopping"      class="main-cat-card" style="--accent:#8b6f5e"><div class="cat-emoji">🛍️</div><h3>Shopping & Retail</h3><p>Clothing, Thrift, Jewelry & more</p><span class="cat-count">8 services</span></a>
+        <a href="subcategory.html?cat=legal"         class="main-cat-card" style="--accent:#1a5f9e"><div class="cat-emoji">⚖️</div><h3>Legal & Financial</h3><p>Attorneys, Accountants & more</p><span class="cat-count">4 services</span></a>
+        <a href="subcategory.html?cat=realestate"    class="main-cat-card" style="--accent:#c8773a"><div class="cat-emoji">🏡</div><h3>Real Estate</h3><p>Realtors, Mortgages & more</p><span class="cat-count">4 services</span></a>
+        <a href="subcategory.html?cat=pets"          class="main-cat-card" style="--accent:#3a6b3a"><div class="cat-emoji">🐾</div><h3>Pets & Vets</h3><p>Grooming, Training, Boarding & more</p><span class="cat-count">5 services</span></a>
+        <a href="subcategory.html?cat=kids"          class="main-cat-card" style="--accent:#1a5f9e"><div class="cat-emoji">👶</div><h3>Kids & Family</h3><p>Daycares, Pediatricians & more</p><span class="cat-count">4 services</span></a>
+        <a href="subcategory.html?cat=education"     class="main-cat-card" style="--accent:#8b6f5e"><div class="cat-emoji">📚</div><h3>Education</h3><p>Driving Schools, Music, Art & more</p><span class="cat-count">6 services</span></a>
+        <a href="subcategory.html?cat=senior"        class="main-cat-card" style="--accent:#3a6b3a"><div class="cat-emoji">👴</div><h3>Senior Services</h3><p>Assisted Living, Home Health & more</p><span class="cat-count">4 services</span></a>
+        <a href="subcategory.html?cat=professional"  class="main-cat-card" style="--accent:#1a5f9e"><div class="cat-emoji">💼</div><h3>Professional Services</h3><p>Marketing, Web Design & more</p><span class="cat-count">6 services</span></a>
+        <a href="subcategory.html?cat=lifestyle"     class="main-cat-card" style="--accent:#8b6f5e"><div class="cat-emoji">🛋️</div><h3>Home & Lifestyle</h3><p>Movers, Storage, Photographers & more</p><span class="cat-count">6 services</span></a>
+        <a href="subcategory.html?cat=community"     class="main-cat-card" style="--accent:#3a6b3a"><div class="cat-emoji">🤝</div><h3>Community & Faith</h3><p>Churches, Nonprofits & more</p><span class="cat-count">Free listings</span></a>
+        <a href="categories.html"                    class="main-cat-card" style="--accent:#c8773a"><div class="cat-emoji">📋</div><h3>All Categories</h3><p>Browse everything in one place</p><span class="cat-count">150+ services</span></a>
+      </div>
+    </div>
+  </section>
 
-        <a href="subcategory.html?cat=home" class="main-cat-card" style="--accent:#2196F3">
-          <div class="cat-emoji">🏠</div>
-          <h3>Home Services</h3>
-          <p>Plumbers, Electricians, HVAC, Roofers & more</p>
-          <span class="cat-count">12 services</span>
+  <!-- ── EXPLORE SIOUX FALLS ────────────────────────────────────── -->
+  <section class="explore-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Discover Your City</div>
+        <h2>Explore Sioux Falls</h2>
+        <p>From the iconic falls to local events — everything that makes Sioux Falls special</p>
+      </div>
+      <div class="explore-grid">
+
+        <a href="category.html?cat=explore&sub=fallspark" class="explore-card">
+          <div class="explore-card-img nature">💧</div>
+          <div class="explore-card-body">
+            <div class="explore-card-title">Falls Park</div>
+            <div class="explore-card-desc">The Big Sioux River cascades over ancient pink quartzite. The crown jewel of Sioux Falls — always free.</div>
+            <span class="explore-free-badge">✓ Always Free</span>
+          </div>
         </a>
 
-        <a href="subcategory.html?cat=auto" class="main-cat-card" style="--accent:#F44336">
-          <div class="cat-emoji">🚗</div>
-          <h3>Auto</h3>
-          <p>Mechanics, Body Shops, Tire Shops & more</p>
-          <span class="cat-count">5 services</span>
+        <a href="category.html?cat=explore&sub=museums" class="explore-card">
+          <div class="explore-card-img culture">🏛️</div>
+          <div class="explore-card-body">
+            <div class="explore-card-title">Museums & History</div>
+            <div class="explore-card-desc">Explore the rich history of Sioux Falls, the region and South Dakota's cultural heritage.</div>
+            <span class="explore-free-badge">✓ Many Free</span>
+          </div>
         </a>
 
-        <a href="subcategory.html?cat=health" class="main-cat-card" style="--accent:#4CAF50">
-          <div class="cat-emoji">⚕️</div>
-          <h3>Health & Wellness</h3>
-          <p>Dentists, Doctors, Chiropractors & more</p>
-          <span class="cat-count">7 services</span>
+        <a href="category.html?cat=explore&sub=nativeheritage" class="explore-card">
+          <div class="explore-card-img culture">🦅</div>
+          <div class="explore-card-body">
+            <div class="explore-card-title">Native American Heritage</div>
+            <div class="explore-card-desc">Discover the rich culture, art and history of South Dakota's Native American communities.</div>
+            <span class="explore-free-badge">✓ Free</span>
+          </div>
         </a>
 
-        <a href="subcategory.html?cat=legal" class="main-cat-card" style="--accent:#9C27B0">
-          <div class="cat-emoji">⚖️</div>
-          <h3>Legal & Financial</h3>
-          <p>Attorneys, Accountants, Insurance & more</p>
-          <span class="cat-count">4 services</span>
+        <a href="category.html?cat=explore&sub=fairs" class="explore-card">
+          <div class="explore-card-img events">🎪</div>
+          <div class="explore-card-body">
+            <div class="explore-card-title">Fairs & Festivals</div>
+            <div class="explore-card-desc">Annual events, seasonal festivals and community celebrations throughout the year.</div>
+          </div>
         </a>
 
-        <a href="subcategory.html?cat=food" class="main-cat-card" style="--accent:#FF9800">
-          <div class="cat-emoji">🍕</div>
-          <h3>Food & Dining</h3>
-          <p>Restaurants, Pizza, Bars & more</p>
-          <span class="cat-count">7 services</span>
+        <a href="category.html?cat=explore&sub=familyfun" class="explore-card">
+          <div class="explore-card-img events">🎡</div>
+          <div class="explore-card-body">
+            <div class="explore-card-title">Family Attractions</div>
+            <div class="explore-card-desc">Fun for the whole family — arcades, mini golf, escape rooms and more.</div>
+          </div>
         </a>
 
-        <a href="subcategory.html?cat=beauty" class="main-cat-card" style="--accent:#E91E63">
-          <div class="cat-emoji">💇</div>
-          <h3>Beauty & Personal Care</h3>
-          <p>Salons, Barbershops, Spas & more</p>
-          <span class="cat-count">5 services</span>
+        <a href="category.html?cat=explore&sub=outdoors" class="explore-card">
+          <div class="explore-card-img nature">🌲</div>
+          <div class="explore-card-body">
+            <div class="explore-card-title">Outdoor Activities</div>
+            <div class="explore-card-desc">Hiking, biking, parks and outdoor recreation in and around Sioux Falls.</div>
+            <span class="explore-free-badge">✓ Many Free</span>
+          </div>
         </a>
 
-        <a href="subcategory.html?cat=lifestyle" class="main-cat-card" style="--accent:#607D8B">
-          <div class="cat-emoji">🛋️</div>
-          <h3>Home & Lifestyle</h3>
-          <p>Furniture, Movers, Photographers & more</p>
-          <span class="cat-count">6 services</span>
+        <a href="category.html?cat=explore&sub=tours" class="explore-card">
+          <div class="explore-card-img mountains">🗺️</div>
+          <div class="explore-card-body">
+            <div class="explore-card-title">Tours & Experiences</div>
+            <div class="explore-card-desc">Guided tours, unique experiences and things to do you won't find anywhere else.</div>
+          </div>
         </a>
 
-        <a href="subcategory.html?cat=kids" class="main-cat-card" style="--accent:#00BCD4">
-          <div class="cat-emoji">👶</div>
-          <h3>Kids & Family</h3>
-          <p>Daycares, Tutoring, Activities & more</p>
-          <span class="cat-count">4 services</span>
-        </a>
-
-        <a href="subcategory.html?cat=pets" class="main-cat-card" style="--accent:#8BC34A">
-          <div class="cat-emoji">🐾</div>
-          <h3>Pets & Veterinarians</h3>
-          <p>Vets, Grooming, Boarding & more</p>
-          <span class="cat-count">4 services</span>
-        </a>
-
-        <a href="subcategory.html?cat=realestate" class="main-cat-card" style="--accent:#FF5722">
-          <div class="cat-emoji">🏡</div>
-          <h3>Real Estate</h3>
-          <p>Realtors, Mortgages, Inspectors & more</p>
-          <span class="cat-count">4 services</span>
+        <a href="explore.html" class="explore-card">
+          <div class="explore-card-img radio">🌟</div>
+          <div class="explore-card-body">
+            <div class="explore-card-title">Visitor Guide</div>
+            <div class="explore-card-desc">New to Sioux Falls? Get the complete local guide — places to stay, eat, explore and more.</div>
+            <span class="explore-free-badge">✓ Free Guide</span>
+          </div>
         </a>
 
       </div>
     </div>
   </section>
 
-  
+  <!-- ── RADIO STATIONS ─────────────────────────────────────────── -->
+  <section class="radio-section">
+    <div class="container radio-inner">
+      <div>
+        <div class="radio-title">📻 Tune In to Sioux Falls</div>
+        <div class="radio-subtitle">Local radio stations for residents & visitors</div>
+      </div>
+      <div class="radio-stations" id="radioStations"></div>
+    </div>
+  </section>
 
   <!-- ── TRUST BADGES ────────────────────────────────────────────── -->
   <section class="trust-section">
     <div class="container trust-grid">
       <div class="trust-item">
         <div class="trust-icon">⭐</div>
-        <div><strong>4.5+ Stars Only for Premium</strong><span>Featured pros must maintain top Google ratings</span></div>
+        <div><strong>4.5+ Stars for Premium</strong><span>Featured pros must maintain top Google ratings</span></div>
       </div>
       <div class="trust-item">
         <div class="trust-icon">📍</div>
@@ -434,7 +255,7 @@
       <div class="adv-left">
         <div class="adv-badge">Limited Spots — First Come First Served</div>
         <h2>Own a local business?</h2>
-        <p>Get featured on Sioux Falls' local directory. Page 1 spots from $30/month. Premium spotlight from $50/month. Spots fill up — don't wait.</p>
+        <p>Get featured on Sioux Falls' only local directory. Page 1 spots from $30/month. Premium spotlight from $50/month. Spots are limited and fill up fast.</p>
       </div>
       <div class="adv-right">
         <div class="adv-prices">
@@ -452,13 +273,13 @@
     <div class="container footer-inner">
       <div class="footer-brand">
         <a href="index.html" class="logo logo-white">
-          <div class="logo-icon" style="background:rgba(255,255,255,0.15)">
-            <svg width="26" height="26" viewBox="0 0 28 28" fill="none"><path d="M14 2L26 10V26H18V18H10V26H2V10L14 2Z" fill="white" opacity="0.9"/></svg>
+          <div class="logo-icon" style="background:rgba(255,255,255,.15)">
+            <svg width="26" height="26" viewBox="0 0 28 28" fill="none"><path d="M14 2L26 10V26H18V18H10V26H2V10L14 2Z" fill="white" opacity=".9"/></svg>
           </div>
           <span>SiouxFalls<strong>Pros</strong></span>
         </a>
         <p>Connecting Sioux Falls With Local Professionals</p>
-        <p style="margin-top:8px;font-size:12px;opacity:0.4">© 2025 SiouxFallsPros.com — Sioux Falls, South Dakota</p>
+        <p style="margin-top:8px;font-size:12px;opacity:.4">© 2025 SiouxFallsPros.com — Sioux Falls, South Dakota</p>
       </div>
       <div class="footer-links">
         <div class="footer-col">
@@ -473,9 +294,17 @@
           <h4>Popular</h4>
           <a href="subcategory.html?cat=auto">Auto & Mechanics</a>
           <a href="subcategory.html?cat=health">Health & Dentists</a>
-          <a href="subcategory.html?cat=food">Restaurants</a>
-          <a href="subcategory.html?cat=legal">Attorneys</a>
+          <a href="subcategory.html?cat=food">Restaurants & Food</a>
+          <a href="subcategory.html?cat=entertainment">Entertainment</a>
           <a href="subcategory.html?cat=beauty">Salons & Spas</a>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <a href="category.html?cat=explore&sub=fallspark">Falls Park</a>
+          <a href="category.html?cat=explore&sub=museums">Museums</a>
+          <a href="category.html?cat=explore&sub=fairs">Fairs & Events</a>
+          <a href="explore.html">Visitor Guide</a>
+          <a href="categories.html">All Categories</a>
         </div>
         <div class="footer-col">
           <h4>Business Owners</h4>
