@@ -35,10 +35,10 @@
     </div>
   </header>
 
-  <!-- ── HERO — SIOUX FALLS SCENE ───────────────────────────────── -->
+  <!-- ── HERO — REAL PHOTO ──────────────────────────────────────── -->
   <section class="hero">
     <div class="hero-scene">
-      <svg viewBox="0 0 1400 560" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <img src="hero-bg.jpg" alt="South Dakota" class="hero-photo"/>
         <defs>
           <linearGradient id="skyGold" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stop-color="#1a3a5c"/>
@@ -408,47 +408,7 @@
     </div>
   </section>
 
-  <!-- ── FIND VENDORS NEAR YOU ──────────────────────────────────── -->
-  <section class="map-section">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-eyebrow">📍 Location Based</div>
-        <h2>Find Vendors Near You</h2>
-        <p>Enter your address to see the closest top-rated pros in Sioux Falls</p>
-      </div>
-      <div class="map-search-bar">
-        <div class="map-search-inner">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <input type="text" id="mapAddressInput" placeholder="Enter your address (e.g. 123 Main St, Sioux Falls)"/>
-          <select id="mapCategorySelect">
-            <option value="all">All Services</option>
-            <option value="plumber">Plumbers</option>
-            <option value="electrician">Electricians</option>
-            <option value="hvac">HVAC</option>
-            <option value="dentist">Dentists</option>
-            <option value="mechanic">Auto Mechanics</option>
-            <option value="restaurant">Restaurants</option>
-            <option value="lawyer">Attorneys</option>
-            <option value="hair salon">Hair Salons</option>
-            <option value="garage door">Garage Door</option>
-            <option value="roofer">Roofers</option>
-            <option value="painter">Painters</option>
-          </select>
-          <button onclick="findNearbyPros()" class="map-search-btn">Find Nearby Pros</button>
-        </div>
-      </div>
-      <div class="map-layout">
-        <div id="map" class="map-container"></div>
-        <div class="map-results" id="mapResults">
-          <div class="map-results-placeholder">
-            <div style="font-size:48px;margin-bottom:16px">📍</div>
-            <h3>Enter your address above</h3>
-            <p>We'll show the closest top-rated pros near you</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 
   <!-- ── TRUST BADGES ────────────────────────────────────────────── -->
   <section class="trust-section">

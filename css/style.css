@@ -49,8 +49,8 @@ a{color:var(--blue);text-decoration:none}
 /* ── Hero ─────────────────────────────────────────────────────── */
 .hero{position:relative;min-height:620px;display:flex;align-items:center;overflow:hidden}
 .hero-scene{position:absolute;inset:0;z-index:0}
-.hero-scene svg{width:100%;height:100%;object-fit:cover}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,71,161,.82) 0%,rgba(21,101,192,.7) 40%,rgba(21,101,192,.35) 100%);z-index:1}
+.hero-photo{width:100%;height:100%;object-fit:cover;object-position:center 35%}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,38,97,.92) 0%,rgba(13,71,161,.82) 40%,rgba(13,71,161,.55) 70%,rgba(0,0,0,.4) 100%);z-index:1}
 .hero-content{position:relative;z-index:2;padding:80px 0;width:100%}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;background:rgba(255,255,255,.15);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.3);border-radius:var(--radius-full);font-size:13px;font-weight:700;color:white;margin-bottom:20px;animation:fadeInDown .6s ease}
 .hero-content h1{font-family:'Poppins',sans-serif;font-size:clamp(34px,5vw,62px);font-weight:900;line-height:1.1;color:white;margin-bottom:16px;letter-spacing:-.02em;animation:fadeInUp .6s ease .1s both}
