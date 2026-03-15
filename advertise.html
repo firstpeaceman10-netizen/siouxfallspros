@@ -1,32 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="robots" content="index, follow"/>
-  <meta name="geo.region" content="US-SD"/>
-  <meta name="geo.placename" content="Sioux Falls, South Dakota"/>
-  <meta name="geo.position" content="43.5446;-96.7311"/>
-  <meta name="ICBM" content="43.5446, -96.7311"/>
-  <meta name="language" content="English"/>
-  <meta name="revisit-after" content="7 days"/>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Advertise — SiouxFallsPros</title>
   <link rel="stylesheet" href="css/style.css"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet"/>
-  <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>
 
   <header class="header">
     <div class="container header-inner">
-      <a href="index.html" class="logo">
-        <div class="logo-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 2L26 10V26H18V18H10V26H2V10L14 2Z" fill="white"/></svg></div>
-        <span>SiouxFalls<strong>Pros</strong></span>
-      </a>
+      <a href="index.html" class="logo"><div class="logo-icon"><svg width="26" height="26" viewBox="0 0 28 28" fill="none"><path d="M14 2L26 10V26H18V18H10V26H2V10L14 2Z" fill="white"/></svg></div><span>SiouxFalls<strong>Pros</strong></span></a>
       <nav class="nav" id="mainNav">
-        <a href="index.html">Home</a>
-        <a href="categories.html">All Categories</a>
+        <a href="index.html">Home</a><a href="categories.html">All Categories</a>
         <a href="advertise.html" class="active">Advertise</a>
         <a href="advertise.html" class="btn-nav">List Your Business</a>
       </nav>
@@ -37,7 +24,7 @@
   <section class="adv-hero">
     <div class="container">
       <h1>Get Found by Sioux Falls Customers</h1>
-      <p>People search for local pros on their phones every day. Be the first business they see — only 4.5+ star businesses get featured spots.</p>
+      <p>The only local directory built specifically for Sioux Falls. Real customers searching for real local pros every day.</p>
     </div>
   </section>
 
@@ -46,7 +33,7 @@
     <div class="container">
       <div class="section-header">
         <h2>Simple, honest pricing</h2>
-        <p>No contracts. Cancel any time. Only 10 featured spots per category — first come, first served.</p>
+        <p>No contracts. Cancel any time. Spots are limited — first come first served.</p>
       </div>
       <div class="pricing-grid">
 
@@ -59,10 +46,9 @@
             <li>✅ Business name & phone</li>
             <li>✅ Basic description</li>
             <li>❌ No featured placement</li>
-            <li>❌ No logo display</li>
             <li>❌ No website link</li>
           </ul>
-          <a href="#contact" class="btn-outline btn-full">Get Free Listing</a>
+          <button onclick="selectPlan('free')" class="btn-outline btn-full">Get Free Listing</button>
         </div>
 
         <div class="pricing-card featured">
@@ -73,178 +59,211 @@
           <ul class="pricing-perks">
             <li>✅ Page 1 featured placement</li>
             <li>✅ Top of category results</li>
-            <li>✅ Featured badge on listing</li>
+            <li>✅ Featured badge</li>
             <li>✅ Your logo displayed</li>
-            <li>✅ Full description</li>
             <li>✅ Direct call button</li>
             <li>✅ Link to your website</li>
           </ul>
-          <a href="#contact" class="btn-primary btn-full">Claim Your Spot</a>
-          <p class="pricing-note">⚡ Only 10 spots per category</p>
+          <button onclick="selectPlan('page1')" class="btn-primary btn-full">Claim Your Spot</button>
+          <p class="pricing-note" id="page1-note">⚡ Only 10 spots per category</p>
         </div>
 
-        <div class="pricing-card premium">
-          <div class="pricing-badge-top gold">Premium — 1 Spot Only</div>
+        <div class="pricing-card premium-card">
+          <div class="pricing-badge-top amber">1 Spot Only</div>
           <div class="pricing-name">Category Spotlight</div>
           <div class="pricing-price">$50<span>/month</span></div>
           <p class="pricing-desc">Must have 4.5+ Google rating</p>
           <ul class="pricing-perks">
-            <li>✅ Everything in Page 1 Featured</li>
+            <li>✅ Everything in Page 1</li>
             <li>⭐ Top of entire category page</li>
             <li>⭐ Seen before subcategories</li>
             <li>⭐ Largest display on page</li>
-            <li>⭐ Exclusive — only 1 per category</li>
+            <li>⭐ Only 1 per category ever</li>
             <li>⭐ Premium gold badge</li>
-            <li>⭐ First pick when spots open</li>
           </ul>
-          <a href="#contact" class="btn-primary btn-full" style="background:linear-gradient(135deg,#F9A825,#F57F17)">Claim the Spotlight</a>
-          <p class="pricing-note">🔒 Only 1 spot per category — ever</p>
+          <button onclick="selectPlan('spotlight')" class="btn-amber btn-full">Claim the Spotlight</button>
+          <p class="pricing-note" id="spotlight-note">🔒 Only 1 spot per category</p>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- Why advertise -->
-  <section class="why-adv-section">
-    <div class="container">
-      <div class="section-header">
-        <h2>Why SiouxFallsPros works</h2>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px">
-        <div class="sidebar-card" style="text-align:center">
-          <div style="font-size:36px;margin-bottom:12px">📱</div>
-          <h3>People search on their phones</h3>
-          <p>When a pipe bursts at 10pm nobody reads a billboard. They search their phone. Be there.</p>
-        </div>
-        <div class="sidebar-card" style="text-align:center">
-          <div style="font-size:36px;margin-bottom:12px">🎯</div>
-          <h3>Only Sioux Falls customers</h3>
-          <p>Every visitor is looking for a local pro right now. No wasted impressions.</p>
-        </div>
-        <div class="sidebar-card" style="text-align:center">
-          <div style="font-size:36px;margin-bottom:12px">💰</div>
-          <h3>One job pays for months</h3>
-          <p>At $30/month a single new customer pays for your listing for a year.</p>
-        </div>
-        <div class="sidebar-card" style="text-align:center">
-          <div style="font-size:36px;margin-bottom:12px">⭐</div>
-          <h3>Quality matters here</h3>
-          <p>We only feature businesses with strong Google ratings. Customers trust that.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact form -->
-  <section class="contact-section" id="contact">
+  <!-- Business signup form -->
+  <section class="contact-section" id="signup">
     <div class="container">
       <div class="contact-layout">
         <div class="contact-text">
           <h2>Ready to get started?</h2>
-          <p>Fill out the form and we'll reach out within 24 hours to verify your Google rating and get your listing set up.</p>
+          <p>Fill out the form and we will set up your listing. Payment is processed securely through Stripe. Cancel any time — no contracts.</p>
           <div class="contact-detail">
-            <div class="contact-item">
-              <span>📧</span>
-              <a href="mailto:hello@siouxfallspros.com">hello@siouxfallspros.com</a>
-            </div>
+            <div class="contact-item"><span>📧</span><a href="mailto:hello@siouxfallspros.com">hello@siouxfallspros.com</a></div>
             <div class="contact-item" style="font-size:14px;color:var(--text-3);margin-top:8px">
-              We check your Google rating before approving featured spots.<br/>
-              4.5+ for Premium Spotlight · 3.0+ for Page 1 Featured
+              We verify your Google rating before approving featured spots.<br/>
+              4.5+ for Spotlight · 3.0+ for Page 1 Featured
+            </div>
+          </div>
+
+          <!-- Why it works -->
+          <div style="margin-top:32px;display:flex;flex-direction:column;gap:14px">
+            <div style="display:flex;align-items:flex-start;gap:12px">
+              <div style="font-size:20px;flex-shrink:0">📱</div>
+              <div><strong style="font-size:14px">One new customer pays for months</strong><p style="font-size:13px;color:var(--text-3);margin-top:2px">At $30/month a single new customer from the site pays for your listing for a year.</p></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px">
+              <div style="font-size:20px;flex-shrink:0">🎯</div>
+              <div><strong style="font-size:14px">Only Sioux Falls customers</strong><p style="font-size:13px;color:var(--text-3);margin-top:2px">Every visitor is looking for a local pro right now. No wasted impressions.</p></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px">
+              <div style="font-size:20px;flex-shrink:0">⭐</div>
+              <div><strong style="font-size:14px">Quality-gated directory</strong><p style="font-size:13px;color:var(--text-3);margin-top:2px">We only feature businesses with strong Google ratings. Customers trust that.</p></div>
             </div>
           </div>
         </div>
 
-        <div class="contact-form" id="advertiseForm">
+        <div class="contact-form">
+          <!-- Form success -->
           <div id="formSuccess" class="form-success">
             <div class="success-icon">🎉</div>
-            <h3>We got your info!</h3>
-            <p>We'll reach out within 24 hours to verify your rating and get you listed.</p>
+            <h3>You are all set!</h3>
+            <p id="successMessage">Your listing has been created. We will reach out within 24 hours.</p>
           </div>
-          <form onsubmit="submitForm(event)" id="theForm">
+
+          <!-- Signup form -->
+          <form id="theForm" onsubmit="handleSubmit(event)">
+            <div style="background:var(--amber-light);border:1px solid var(--amber);border-radius:var(--radius-sm);padding:12px 16px;margin-bottom:20px;font-size:14px;font-weight:700;color:var(--amber-dark)" id="selectedPlan">
+              ✅ Selected: Free Listing — change by clicking a plan above
+            </div>
+            <input type="hidden" id="planInput" value="free"/>
+
             <div class="form-row">
               <div class="form-group">
                 <label>Business Name *</label>
-                <input type="text" name="business" placeholder="Your Business Name" required/>
+                <input type="text" id="f-name" placeholder="Your Business Name" required/>
               </div>
               <div class="form-group">
                 <label>Your Name *</label>
-                <input type="text" name="name" placeholder="Your Name" required/>
+                <input type="text" id="f-owner" placeholder="Your Name" required/>
               </div>
             </div>
             <div class="form-row">
               <div class="form-group">
                 <label>Phone *</label>
-                <input type="tel" name="phone" placeholder="(605) 000-0000" required/>
+                <input type="tel" id="f-phone" placeholder="(605) 000-0000" required/>
               </div>
               <div class="form-group">
                 <label>Email *</label>
-                <input type="email" name="email" placeholder="you@email.com" required/>
+                <input type="email" id="f-email" placeholder="you@email.com" required/>
               </div>
             </div>
             <div class="form-group">
               <label>Category *</label>
-              <select name="category" required>
+              <select id="f-category" required>
                 <option value="">Select your category…</option>
                 <optgroup label="Home Services">
-                  <option>Plumbers</option><option>Electricians</option><option>HVAC</option>
-                  <option>Roofers</option><option>Painters</option><option>Lawn Care</option>
-                  <option>General Contractors</option><option>Handyman</option>
-                  <option>Flooring</option><option>Cleaning Services</option>
+                  <option value="plumbers">Plumbers</option>
+                  <option value="electricians">Electricians</option>
+                  <option value="hvac">HVAC</option>
+                  <option value="roofers">Roofers</option>
+                  <option value="painters">Painters</option>
+                  <option value="lawncare">Lawn Care</option>
+                  <option value="contractors">General Contractors</option>
+                  <option value="handyman">Handyman</option>
+                  <option value="flooring">Flooring</option>
+                  <option value="cleaning">Cleaning Services</option>
+                  <option value="garage">Garage Door Repair</option>
+                  <option value="pestcontrol">Pest Control</option>
+                  <option value="treeservice">Tree Service</option>
+                  <option value="fencing">Fencing</option>
+                  <option value="concrete">Concrete & Driveways</option>
+                  <option value="windows">Window Repair</option>
+                  <option value="security">Security Systems</option>
                 </optgroup>
                 <optgroup label="Auto">
-                  <option>Auto Mechanics</option><option>Auto Body</option>
-                  <option>Tire Shops</option><option>Oil Change</option><option>Towing</option>
+                  <option value="mechanics">Auto Mechanics</option>
+                  <option value="autobody">Auto Body</option>
+                  <option value="tires">Tire Shops</option>
+                  <option value="oilchange">Oil Change</option>
+                  <option value="towing">Towing</option>
                 </optgroup>
                 <optgroup label="Health & Wellness">
-                  <option>Dentists</option><option>Doctors</option><option>Chiropractors</option>
-                  <option>Eye Care</option><option>Mental Health</option><option>Urgent Care</option><option>Veterinarians</option>
+                  <option value="dentists">Dentists</option>
+                  <option value="doctors">Doctors</option>
+                  <option value="chiropractic">Chiropractors</option>
+                  <option value="eyecare">Eye Care</option>
+                  <option value="mentalhealth">Mental Health</option>
+                  <option value="urgentcare">Urgent Care</option>
                 </optgroup>
                 <optgroup label="Legal & Financial">
-                  <option>Attorneys</option><option>Accountants & Tax</option>
-                  <option>Insurance</option><option>Financial Advisors</option>
+                  <option value="attorneys">Attorneys</option>
+                  <option value="accountants">Accountants & Tax</option>
+                  <option value="insurance">Insurance</option>
+                  <option value="financial">Financial Advisors</option>
                 </optgroup>
                 <optgroup label="Food & Dining">
-                  <option>Restaurants</option><option>Pizza</option><option>Mexican Food</option>
-                  <option>Asian Food</option><option>Breakfast & Brunch</option>
-                  <option>Bars & Nightlife</option><option>Food Trucks</option>
+                  <option value="restaurants">Restaurants</option>
+                  <option value="pizza">Pizza</option>
+                  <option value="mexican">Mexican Food</option>
+                  <option value="asian">Asian Food</option>
+                  <option value="breakfast">Breakfast & Brunch</option>
+                  <option value="bars">Bars & Nightlife</option>
+                  <option value="bakeries">Bakeries</option>
+                  <option value="coffee">Coffee Shops</option>
                 </optgroup>
-                <optgroup label="Beauty & Personal Care">
-                  <option>Hair Salons</option><option>Barbershops</option>
-                  <option>Nail Salons</option><option>Spas & Massage</option><option>Tattoo Shops</option>
+                <optgroup label="Beauty & Care">
+                  <option value="hairsalons">Hair Salons</option>
+                  <option value="barbershops">Barbershops</option>
+                  <option value="nailsalons">Nail Salons</option>
+                  <option value="spas">Spas & Massage</option>
+                  <option value="tattoo">Tattoo Shops</option>
+                </optgroup>
+                <optgroup label="Fitness">
+                  <option value="gyms">Gyms & Fitness</option>
+                  <option value="yoga">Yoga Studios</option>
+                  <option value="trainers">Personal Trainers</option>
+                  <option value="martialarts">Martial Arts</option>
+                </optgroup>
+                <optgroup label="Entertainment">
+                  <option value="venues">Event Venues</option>
+                  <option value="catering">Catering</option>
+                  <option value="djs">DJs & Entertainment</option>
+                  <option value="escape">Escape Rooms</option>
+                  <option value="arcades">Arcades & Gaming</option>
                 </optgroup>
                 <optgroup label="Other">
-                  <option>Real Estate</option><option>Pets & Veterinarians</option>
-                  <option>Kids & Family</option><option>Home & Lifestyle</option>
-                  <option>Other</option>
+                  <option value="realtors">Real Estate</option>
+                  <option value="petvets">Veterinarians</option>
+                  <option value="petgrooming">Pet Grooming</option>
+                  <option value="daycares">Daycares</option>
+                  <option value="photographers">Photographers</option>
+                  <option value="movers">Moving Companies</option>
+                  <option value="other">Other</option>
                 </optgroup>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>Listing Type *</label>
-              <select name="listing" required>
-                <option value="">Select listing type…</option>
-                <option>Premium Category Spotlight — $50/month (4.5+ stars required)</option>
-                <option>Page 1 Featured — $30/month (3.0+ stars required)</option>
-                <option>Page 2 Listing — $15/month</option>
-                <option>Free Listing — $0</option>
-                <option>Not sure yet</option>
               </select>
             </div>
             <div class="form-group">
               <label>Website (optional)</label>
-              <input type="url" name="website" placeholder="https://yourbusiness.com"/>
+              <input type="url" id="f-website" placeholder="https://yourbusiness.com"/>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Google Rating (optional)</label>
+                <input type="number" id="f-rating" step="0.1" min="0" max="5" placeholder="e.g. 4.7"/>
+              </div>
+              <div class="form-group">
+                <label>Review Count (optional)</label>
+                <input type="number" id="f-reviews" placeholder="e.g. 150"/>
+              </div>
             </div>
             <div class="form-group">
-              <label>Your Google Rating (optional)</label>
-              <input type="text" name="rating" placeholder="e.g. 4.8 stars — 150 reviews"/>
+              <label>Business Description</label>
+              <textarea id="f-desc" rows="3" placeholder="Brief description of your business and services…"></textarea>
             </div>
-            <div class="form-group">
-              <label>Anything else?</label>
-              <textarea name="message" rows="3" placeholder="Tell us about your business…"></textarea>
-            </div>
-            <button type="submit" class="btn-primary btn-full">Send My Information →</button>
-            <p class="form-note">We'll respond within 24 hours. No spam, ever.</p>
+
+            <button type="submit" id="submitBtn" class="btn-primary btn-full">
+              Continue →
+            </button>
+            <p class="form-note">Payments processed securely by Stripe. Cancel any time.</p>
           </form>
         </div>
       </div>
@@ -252,19 +271,109 @@
   </section>
 
   <footer class="footer">
-    <div class="footer-bottom"><div class="container"><p style="text-align:center;color:rgba(255,255,255,0.3);font-size:13px">© 2025 SiouxFallsPros.com — Sioux Falls, South Dakota</p></div></div>
+    <div class="footer-bottom"><div class="container"><p style="text-align:center;color:rgba(255,255,255,.3);font-size:13px">© 2025 SiouxFallsPros.com — Sioux Falls, South Dakota</p></div></div>
   </footer>
 
   <script src="js/main.js"></script>
   <script>
-    function submitForm(e) {
+    const PLAN_LABELS = {
+      free:      'Free Listing — $0/month',
+      page2:     'Page 2 Listing — $15/month',
+      page1:     'Page 1 Featured — $30/month',
+      spotlight: 'Premium Category Spotlight — $50/month',
+    };
+
+    function selectPlan(plan) {
+      document.getElementById('planInput').value = plan;
+      document.getElementById('selectedPlan').textContent = `✅ Selected: ${PLAN_LABELS[plan]}`;
+      document.getElementById('signup').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    async function handleSubmit(e) {
       e.preventDefault();
-      const form    = document.getElementById('theForm');
-      const success = document.getElementById('formSuccess');
-      form.style.display    = 'none';
-      success.style.display = 'block';
+      const btn  = document.getElementById('submitBtn');
+      const plan = document.getElementById('planInput').value;
+
+      btn.textContent = 'Processing…';
+      btn.disabled    = true;
+
+      const payload = {
+        businessName: document.getElementById('f-name').value,
+        ownerName:    document.getElementById('f-owner').value,
+        phone:        document.getElementById('f-phone').value,
+        email:        document.getElementById('f-email').value,
+        categoryKey:  document.getElementById('f-category').value,
+        website:      document.getElementById('f-website').value,
+        rating:       document.getElementById('f-rating').value,
+        reviews:      document.getElementById('f-reviews').value,
+        description:  document.getElementById('f-desc').value,
+        spotType:     plan,
+        emoji:        '⭐',
+      };
+
+      try {
+        const res  = await fetch('/api/checkout', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const data = await res.json();
+
+        if (data.error === 'SPOTS_FULL') {
+          // Spots full — offer waitlist
+          btn.textContent = 'Continue →';
+          btn.disabled    = false;
+          if (confirm(`All ${plan} spots are taken for ${payload.categoryKey}. Would you like to join the waitlist? You will be notified when a spot opens.`)) {
+            await joinWaitlist(payload);
+          }
+          return;
+        }
+
+        if (data.url) {
+          // Redirect to Stripe checkout
+          window.location.href = data.url;
+          return;
+        }
+
+        if (data.success && data.type === 'free') {
+          // Free listing confirmed
+          document.getElementById('theForm').style.display    = 'none';
+          document.getElementById('formSuccess').style.display = 'block';
+          document.getElementById('successMessage').textContent = 'Your free listing has been created and is now live on the site!';
+          return;
+        }
+
+        throw new Error(data.error || 'Something went wrong');
+
+      } catch (err) {
+        console.error('Submit error:', err);
+        btn.textContent = 'Continue →';
+        btn.disabled    = false;
+        alert('Something went wrong. Please email hello@siouxfallspros.com directly.');
+      }
+    }
+
+    async function joinWaitlist(payload) {
+      try {
+        await fetch('/api/waitlist', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name:        payload.ownerName,
+            email:       payload.email,
+            phone:       payload.phone,
+            businessName:payload.businessName,
+            categoryKey: payload.categoryKey,
+            spotType:    payload.spotType,
+          }),
+        });
+        document.getElementById('theForm').style.display    = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+        document.getElementById('successMessage').textContent = "You are on the waitlist! We will email you the moment a spot opens in your category.";
+      } catch (err) {
+        alert('Could not join waitlist. Email hello@siouxfallspros.com directly.');
+      }
     }
   </script>
-  <script src="js/seo.js"></script>
 </body>
 </html>
