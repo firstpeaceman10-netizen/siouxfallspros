@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- Core pages -->
   <url><loc>https://www.siouxfallspros.com/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
   <url><loc>https://www.siouxfallspros.com/categories.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.siouxfallspros.com/advertise.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-
-  <!-- Home Services -->
+  <url><loc>https://www.siouxfallspros.com/explore.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.siouxfallspros.com/subcategory.html?cat=home</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.siouxfallspros.com/category.html?cat=home&amp;sub=plumbers</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.siouxfallspros.com/category.html?cat=home&amp;sub=electricians</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
@@ -26,16 +23,12 @@
   <url><loc>https://www.siouxfallspros.com/category.html?cat=home&amp;sub=gutters</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.siouxfallspros.com/category.html?cat=home&amp;sub=windows</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.siouxfallspros.com/category.html?cat=home&amp;sub=security</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-
-  <!-- Auto -->
   <url><loc>https://www.siouxfallspros.com/subcategory.html?cat=auto</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.siouxfallspros.com/category.html?cat=auto&amp;sub=mechanics</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.siouxfallspros.com/category.html?cat=auto&amp;sub=autobody</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.siouxfallspros.com/category.html?cat=auto&amp;sub=tires</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.siouxfallspros.com/category.html?cat=auto&amp;sub=oilchange</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.siouxfallspros.com/category.html?cat=auto&amp;sub=towing</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-
-  <!-- Health -->
   <url><loc>https://www.siouxfallspros.com/subcategory.html?cat=health</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.siouxfallspros.com/category.html?cat=health&amp;sub=dentists</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.siouxfallspros.com/category.html?cat=health&amp;sub=doctors</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
@@ -44,15 +37,11 @@
   <url><loc>https://www.siouxfallspros.com/category.html?cat=health&amp;sub=mentalhealth</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.siouxfallspros.com/category.html?cat=health&amp;sub=urgentcare</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.siouxfallspros.com/category.html?cat=health&amp;sub=vets</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-
-  <!-- Legal -->
   <url><loc>https://www.siouxfallspros.com/subcategory.html?cat=legal</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.siouxfallspros.com/category.html?cat=legal&amp;sub=attorneys</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.siouxfallspros.com/category.html?cat=legal&amp;sub=accountants</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.siouxfallspros.com/category.html?cat=legal&amp;sub=insurance</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.siouxfallspros.com/category.html?cat=legal&amp;sub=financial</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-
-  <!-- Food -->
   <url><loc>https://www.siouxfallspros.com/subcategory.html?cat=food</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.siouxfallspros.com/category.html?cat=food&amp;sub=restaurants</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.siouxfallspros.com/category.html?cat=food&amp;sub=pizza</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
@@ -60,33 +49,67 @@
   <url><loc>https://www.siouxfallspros.com/category.html?cat=food&amp;sub=asian</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.siouxfallspros.com/category.html?cat=food&amp;sub=breakfast</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.siouxfallspros.com/category.html?cat=food&amp;sub=bars</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-
-  <!-- Beauty -->
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=food&amp;sub=bakeries</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=food&amp;sub=coffee</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=food&amp;sub=desserts</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.siouxfallspros.com/subcategory.html?cat=beauty</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.siouxfallspros.com/category.html?cat=beauty&amp;sub=hairsalons</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.siouxfallspros.com/category.html?cat=beauty&amp;sub=barbershops</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.siouxfallspros.com/category.html?cat=beauty&amp;sub=nailsalons</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.siouxfallspros.com/category.html?cat=beauty&amp;sub=spas</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.siouxfallspros.com/category.html?cat=beauty&amp;sub=tattoo</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-
-  <!-- Real Estate -->
+  <url><loc>https://www.siouxfallspros.com/subcategory.html?cat=fitness</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=fitness&amp;sub=gyms</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=fitness&amp;sub=yoga</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=fitness&amp;sub=trainers</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=fitness&amp;sub=martialarts</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.siouxfallspros.com/subcategory.html?cat=entertainment</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=entertainment&amp;sub=venues</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=entertainment&amp;sub=wedding</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=entertainment&amp;sub=catering</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=entertainment&amp;sub=djs</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=entertainment&amp;sub=escape</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=entertainment&amp;sub=arcades</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=entertainment&amp;sub=bowling</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.siouxfallspros.com/subcategory.html?cat=shopping</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=shopping&amp;sub=clothing</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=shopping&amp;sub=thrift</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=shopping&amp;sub=jewelry</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=shopping&amp;sub=electronics</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=shopping&amp;sub=florists</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siouxfallspros.com/subcategory.html?cat=education</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=education&amp;sub=driving</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=education&amp;sub=music</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=education&amp;sub=tutoring</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siouxfallspros.com/subcategory.html?cat=senior</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=senior&amp;sub=assistedliving</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=senior&amp;sub=memorycare</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=senior&amp;sub=homehealth</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siouxfallspros.com/subcategory.html?cat=professional</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=professional&amp;sub=marketing</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=professional&amp;sub=webdesign</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siouxfallspros.com/subcategory.html?cat=lifestyle</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=lifestyle&amp;sub=movers</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=lifestyle&amp;sub=photographers</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=lifestyle&amp;sub=locksmiths</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.siouxfallspros.com/subcategory.html?cat=realestate</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.siouxfallspros.com/category.html?cat=realestate&amp;sub=realtors</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.siouxfallspros.com/category.html?cat=realestate&amp;sub=mortgage</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.siouxfallspros.com/category.html?cat=realestate&amp;sub=homeinspectors</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.siouxfallspros.com/category.html?cat=realestate&amp;sub=propertymanagement</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-
-  <!-- Pets -->
   <url><loc>https://www.siouxfallspros.com/subcategory.html?cat=pets</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.siouxfallspros.com/category.html?cat=pets&amp;sub=petvets</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.siouxfallspros.com/category.html?cat=pets&amp;sub=petgrooming</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.siouxfallspros.com/category.html?cat=pets&amp;sub=dogtraining</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.siouxfallspros.com/category.html?cat=pets&amp;sub=petboarding</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-
-  <!-- Kids -->
   <url><loc>https://www.siouxfallspros.com/subcategory.html?cat=kids</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.siouxfallspros.com/category.html?cat=kids&amp;sub=daycares</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.siouxfallspros.com/category.html?cat=kids&amp;sub=tutoring</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.siouxfallspros.com/category.html?cat=kids&amp;sub=pediatrics</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-
+  <url><loc>https://www.siouxfallspros.com/subcategory.html?cat=explore</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=explore&amp;sub=fallspark</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=explore&amp;sub=museums</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=explore&amp;sub=nativeheritage</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=explore&amp;sub=outdoors</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=explore&amp;sub=fairs</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=explore&amp;sub=familyfun</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siouxfallspros.com/category.html?cat=explore&amp;sub=tours</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
 </urlset>
