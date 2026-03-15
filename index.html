@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Find trusted local professionals in Sioux Falls, SD. Browse top-rated plumbers, electricians, HVAC, roofers, painters and more." />
+  <meta name="keywords" content="Sioux Falls contractors, Sioux Falls plumbers, Sioux Falls electricians, local pros Sioux Falls SD" />
+  <title>SiouxFallsPros — Connecting Sioux Falls With Local Professionals</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ── HEADER ─────────────────────────────────────────────────── -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+          <rect width="36" height="36" rx="10" fill="#1a6fc4"/>
+          <path d="M10 18h16M18 10v16" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <span>SiouxFalls<strong>Pros</strong></span>
+      </a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="categories.html">Categories</a>
+        <a href="advertise.html">Advertise</a>
+        <a href="advertise.html" class="btn-nav">List Your Business</a>
+      </nav>
+      <button class="nav-toggle" onclick="toggleNav()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ── HERO ───────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-text">
+        <h1>Connecting Sioux Falls<br/>With Local Professionals</h1>
+        <p>Find trusted, top-rated local pros for your home. Real reviews from real Sioux Falls neighbors.</p>
+      </div>
+
+      <!-- Search bar -->
+      <div class="search-bar">
+        <div class="search-inner">
+          <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+          <input type="text" id="searchInput" placeholder="Search plumbers, electricians, HVAC…" onkeyup="handleSearch(event)" />
+          <button onclick="goSearch()">Search</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CATEGORY TILES ─────────────────────────────────────────── -->
+  <section class="categories-section">
+    <div class="container">
+      <h2 class="section-title">What do you need help with?</h2>
+      <p class="section-sub">Click a category to see top-rated local pros in Sioux Falls</p>
+
+      <div class="category-grid">
+
+        <a href="category.html?cat=plumbers" class="category-card">
+          <div class="cat-icon">🔧</div>
+          <div class="cat-name">Plumbers</div>
+          <div class="cat-desc">Repairs, installs & emergencies</div>
+        </a>
+
+        <a href="category.html?cat=electricians" class="category-card">
+          <div class="cat-icon">⚡</div>
+          <div class="cat-name">Electricians</div>
+          <div class="cat-desc">Wiring, panels & installations</div>
+        </a>
+
+        <a href="category.html?cat=hvac" class="category-card">
+          <div class="cat-icon">❄️</div>
+          <div class="cat-name">HVAC</div>
+          <div class="cat-desc">Heating, cooling & air quality</div>
+        </a>
+
+        <a href="category.html?cat=roofers" class="category-card">
+          <div class="cat-icon">🏠</div>
+          <div class="cat-name">Roofers</div>
+          <div class="cat-desc">Repair, replace & inspect</div>
+        </a>
+
+        <a href="category.html?cat=painters" class="category-card">
+          <div class="cat-icon">🎨</div>
+          <div class="cat-name">Painters</div>
+          <div class="cat-desc">Interior & exterior painting</div>
+        </a>
+
+        <a href="category.html?cat=lawncare" class="category-card">
+          <div class="cat-icon">🌿</div>
+          <div class="cat-name">Lawn Care</div>
+          <div class="cat-desc">Mowing, landscaping & snow</div>
+        </a>
+
+        <a href="category.html?cat=contractors" class="category-card">
+          <div class="cat-icon">🏗️</div>
+          <div class="cat-name">Contractors</div>
+          <div class="cat-desc">Remodeling & construction</div>
+        </a>
+
+        <a href="category.html?cat=handyman" class="category-card">
+          <div class="cat-icon">🔨</div>
+          <div class="cat-name">Handyman</div>
+          <div class="cat-desc">Odd jobs & home repairs</div>
+        </a>
+
+        <a href="category.html?cat=flooring" class="category-card">
+          <div class="cat-icon">🪵</div>
+          <div class="cat-name">Flooring</div>
+          <div class="cat-desc">Install, repair & refinish</div>
+        </a>
+
+        <a href="category.html?cat=cleaning" class="category-card">
+          <div class="cat-icon">✨</div>
+          <div class="cat-name">Cleaning</div>
+          <div class="cat-desc">Home & commercial cleaning</div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHY US ──────────────────────────────────────────────────── -->
+  <section class="why-section">
+    <div class="container">
+      <h2 class="section-title">Why SiouxFallsPros?</h2>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">📍</div>
+          <h3>100% Local</h3>
+          <p>Every business listed serves the Sioux Falls area. No out-of-state companies, no national chains — just your neighbors.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">⭐</div>
+          <h3>Real Reviews</h3>
+          <p>Ratings pulled from Google so you see honest feedback from real customers in your community.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">📱</div>
+          <h3>One Tap to Call</h3>
+          <p>Find who you need and call them directly from your phone. No accounts, no forms, no hassle.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🆓</div>
+          <h3>Always Free to Search</h3>
+          <p>Finding a pro is always free. Browse, compare, and call as many businesses as you want.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ADVERTISE BANNER ───────────────────────────────────────── -->
+  <section class="advertise-banner">
+    <div class="container advertise-inner">
+      <div class="advertise-text">
+        <h2>Own a local business?</h2>
+        <p>Get featured on page one and be the first pro customers see when they search your category. Page 1 spots start at just $30/month.</p>
+      </div>
+      <a href="advertise.html" class="btn-white">Get Featured Today</a>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo logo-white">
+          <svg width="28" height="28" viewBox="0 0 36 36" fill="none">
+            <rect width="36" height="36" rx="10" fill="#fff" fill-opacity="0.15"/>
+            <path d="M10 18h16M18 10v16" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+          <span>SiouxFalls<strong>Pros</strong></span>
+        </a>
+        <p>Connecting Sioux Falls With Local Professionals</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <a href="category.html?cat=plumbers">Plumbers</a>
+          <a href="category.html?cat=electricians">Electricians</a>
+          <a href="category.html?cat=hvac">HVAC</a>
+          <a href="category.html?cat=roofers">Roofers</a>
+          <a href="category.html?cat=painters">Painters</a>
+        </div>
+        <div class="footer-col">
+          <h4>More Services</h4>
+          <a href="category.html?cat=lawncare">Lawn Care</a>
+          <a href="category.html?cat=contractors">Contractors</a>
+          <a href="category.html?cat=handyman">Handyman</a>
+          <a href="category.html?cat=flooring">Flooring</a>
+          <a href="category.html?cat=cleaning">Cleaning</a>
+        </div>
+        <div class="footer-col">
+          <h4>Business Owners</h4>
+          <a href="advertise.html">Advertise With Us</a>
+          <a href="advertise.html">Claim Your Listing</a>
+          <a href="advertise.html">Pricing</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2025 SiouxFallsPros.com — Sioux Falls, South Dakota</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

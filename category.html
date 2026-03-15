@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Local Pros — SiouxFallsPros</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ── HEADER ─────────────────────────────────────────────────── -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+          <rect width="36" height="36" rx="10" fill="#1a6fc4"/>
+          <path d="M10 18h16M18 10v16" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <span>SiouxFalls<strong>Pros</strong></span>
+      </a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="categories.html">Categories</a>
+        <a href="advertise.html">Advertise</a>
+        <a href="advertise.html" class="btn-nav">List Your Business</a>
+      </nav>
+      <button class="nav-toggle" onclick="toggleNav()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ── CATEGORY HEADER ────────────────────────────────────────── -->
+  <section class="cat-hero">
+    <div class="container">
+      <a href="index.html" class="breadcrumb">← Back to all categories</a>
+      <div class="cat-hero-inner">
+        <div class="cat-hero-icon" id="catIcon">🔧</div>
+        <div>
+          <h1 id="catTitle">Plumbers in Sioux Falls</h1>
+          <p id="catDesc">Find trusted, top-rated plumbers serving Sioux Falls and surrounding areas.</p>
+        </div>
+      </div>
+
+      <!-- Mini search -->
+      <div class="cat-search">
+        <input type="text" id="catSearchInput" placeholder="Search within this category…" onkeyup="filterListings()" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ── LISTINGS ───────────────────────────────────────────────── -->
+  <section class="listings-section">
+    <div class="container listings-layout">
+
+      <!-- Main listings -->
+      <div class="listings-main">
+
+        <!-- Featured label -->
+        <div class="listings-label">
+          <span class="label-featured">⭐ Page 1 — Featured Pros</span>
+          <span class="label-note">Up to 10 featured spots · <a href="advertise.html">Get featured</a></span>
+        </div>
+
+        <!-- Featured listings injected by JS -->
+        <div id="featuredListings"></div>
+
+        <!-- Free listings label -->
+        <div class="listings-label" style="margin-top:32px">
+          <span class="label-free">All Local Pros</span>
+        </div>
+
+        <!-- Free listings injected by JS -->
+        <div id="freeListings"></div>
+
+        <!-- Empty state -->
+        <div id="emptyState" class="empty-state" style="display:none">
+          <div class="empty-icon">🔍</div>
+          <h3>No results found</h3>
+          <p>Try a different search term or <a href="index.html">browse all categories</a></p>
+        </div>
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="listings-sidebar">
+        <div class="sidebar-card">
+          <h3>Own a business in this category?</h3>
+          <p>Get your business in front of Sioux Falls customers actively searching right now.</p>
+          <ul class="sidebar-perks">
+            <li>✅ Page 1 featured placement</li>
+            <li>✅ Your logo & description</li>
+            <li>✅ Direct call button</li>
+            <li>✅ Link to your website</li>
+          </ul>
+          <div class="sidebar-price">Starting at <strong>$30/month</strong></div>
+          <a href="advertise.html" class="btn-primary" style="display:block;text-align:center;margin-top:14px">Get Featured</a>
+        </div>
+
+        <div class="sidebar-card" style="margin-top:16px">
+          <h3>Free listing</h3>
+          <p>Already in the directory? Claim your listing to update your info and respond to reviews.</p>
+          <a href="advertise.html" class="btn-outline" style="display:block;text-align:center;margin-top:12px">Claim My Listing</a>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo logo-white">
+          <svg width="28" height="28" viewBox="0 0 36 36" fill="none">
+            <rect width="36" height="36" rx="10" fill="#fff" fill-opacity="0.15"/>
+            <path d="M10 18h16M18 10v16" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+          <span>SiouxFalls<strong>Pros</strong></span>
+        </a>
+        <p>Connecting Sioux Falls With Local Professionals</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2025 SiouxFallsPros.com — Sioux Falls, South Dakota</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/listings.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

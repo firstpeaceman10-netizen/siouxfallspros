@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advertise — SiouxFallsPros</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ── HEADER ─────────────────────────────────────────────────── -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+          <rect width="36" height="36" rx="10" fill="#1a6fc4"/>
+          <path d="M10 18h16M18 10v16" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <span>SiouxFalls<strong>Pros</strong></span>
+      </a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="categories.html">Categories</a>
+        <a href="advertise.html" class="active">Advertise</a>
+        <a href="advertise.html" class="btn-nav">List Your Business</a>
+      </nav>
+      <button class="nav-toggle" onclick="toggleNav()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ── ADVERTISE HERO ─────────────────────────────────────────── -->
+  <section class="adv-hero">
+    <div class="container">
+      <h1>Get Found by Sioux Falls Customers</h1>
+      <p>People search for local pros on their phones every single day. Be the first business they see.</p>
+    </div>
+  </section>
+
+  <!-- ── PRICING ────────────────────────────────────────────────── -->
+  <section class="pricing-section">
+    <div class="container">
+      <h2 class="section-title">Simple, transparent pricing</h2>
+      <p class="section-sub">No contracts. Cancel any time. Spots are limited — only 10 featured per category.</p>
+
+      <div class="pricing-grid">
+
+        <div class="pricing-card">
+          <div class="pricing-name">Free Listing</div>
+          <div class="pricing-price">$0<span>/month</span></div>
+          <ul class="pricing-perks">
+            <li>✅ Listed in your category</li>
+            <li>✅ Business name & phone</li>
+            <li>✅ Basic description</li>
+            <li>❌ No featured placement</li>
+            <li>❌ No logo or photos</li>
+            <li>❌ No website link</li>
+          </ul>
+          <a href="#contact-form" class="btn-outline" style="display:block;text-align:center">Get Free Listing</a>
+        </div>
+
+        <div class="pricing-card featured">
+          <div class="pricing-badge">Most Popular</div>
+          <div class="pricing-name">Page 1 Featured</div>
+          <div class="pricing-price">$30<span>/month</span></div>
+          <ul class="pricing-perks">
+            <li>✅ Page 1 featured placement</li>
+            <li>✅ Top of category results</li>
+            <li>✅ Your logo displayed</li>
+            <li>✅ Full business description</li>
+            <li>✅ Direct call button</li>
+            <li>✅ Link to your website</li>
+            <li>✅ Featured badge on listing</li>
+          </ul>
+          <a href="#contact-form" class="btn-primary" style="display:block;text-align:center">Claim Your Spot</a>
+          <p class="pricing-note">Only 10 spots per category</p>
+        </div>
+
+        <div class="pricing-card">
+          <div class="pricing-name">Page 2 Listing</div>
+          <div class="pricing-price">$15<span>/month</span></div>
+          <ul class="pricing-perks">
+            <li>✅ Page 2 placement</li>
+            <li>✅ Your logo displayed</li>
+            <li>✅ Full business description</li>
+            <li>✅ Direct call button</li>
+            <li>✅ Link to your website</li>
+            <li>✅ Move up when page 1 opens</li>
+          </ul>
+          <a href="#contact-form" class="btn-outline" style="display:block;text-align:center">Get Page 2 Spot</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHY ADVERTISE ──────────────────────────────────────────── -->
+  <section class="why-adv-section">
+    <div class="container">
+      <h2 class="section-title">Why advertise on SiouxFallsPros?</h2>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">📱</div>
+          <h3>People search on their phones</h3>
+          <p>When a pipe bursts at 10pm nobody looks at a billboard. They search their phone. Be there when it matters.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🎯</div>
+          <h3>Only Sioux Falls customers</h3>
+          <p>Every visitor to SiouxFallsPros is looking for a local pro right now. No wasted impressions.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">💰</div>
+          <h3>One job pays for months</h3>
+          <p>At $30/month a single new customer pays for your listing for a year. The math is simple.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🔒</div>
+          <h3>Scarcity keeps your spot valuable</h3>
+          <p>Only 10 featured spots per category. Once they fill up the price goes up. Lock in now.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT FORM ───────────────────────────────────────────── -->
+  <section class="contact-section" id="contact-form">
+    <div class="container">
+      <div class="contact-layout">
+        <div class="contact-text">
+          <h2>Ready to get started?</h2>
+          <p>Fill out the form and we'll reach out within 24 hours to get your listing set up.</p>
+          <div class="contact-info">
+            <div class="contact-item">
+              <span>📧</span>
+              <a href="mailto:hello@siouxfallspros.com">hello@siouxfallspros.com</a>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form" id="advertiseForm" onsubmit="submitForm(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Business Name *</label>
+              <input type="text" name="business" placeholder="Your Business Name" required />
+            </div>
+            <div class="form-group">
+              <label>Your Name *</label>
+              <input type="text" name="name" placeholder="Your Name" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Phone Number *</label>
+              <input type="tel" name="phone" placeholder="(605) 000-0000" required />
+            </div>
+            <div class="form-group">
+              <label>Email Address *</label>
+              <input type="email" name="email" placeholder="you@email.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Business Category *</label>
+            <select name="category" required>
+              <option value="">Select your category…</option>
+              <option>Plumbers</option>
+              <option>Electricians</option>
+              <option>HVAC</option>
+              <option>Roofers</option>
+              <option>Painters</option>
+              <option>Lawn Care</option>
+              <option>General Contractors</option>
+              <option>Handyman</option>
+              <option>Flooring</option>
+              <option>Cleaning Services</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Listing Type *</label>
+            <select name="listing" required>
+              <option value="">Select listing type…</option>
+              <option>Page 1 Featured — $30/month</option>
+              <option>Page 2 Listing — $15/month</option>
+              <option>Free Listing — $0</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Website (optional)</label>
+            <input type="url" name="website" placeholder="https://yourbusiness.com" />
+          </div>
+          <div class="form-group">
+            <label>Anything else?</label>
+            <textarea name="message" rows="3" placeholder="Tell us a little about your business…"></textarea>
+          </div>
+          <button type="submit" class="btn-primary btn-full">Send My Information →</button>
+          <p class="form-note">We'll reach out within 24 hours. No spam, ever.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo logo-white">
+          <svg width="28" height="28" viewBox="0 0 36 36" fill="none">
+            <rect width="36" height="36" rx="10" fill="#fff" fill-opacity="0.15"/>
+            <path d="M10 18h16M18 10v16" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+          <span>SiouxFalls<strong>Pros</strong></span>
+        </a>
+        <p>Connecting Sioux Falls With Local Professionals</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2025 SiouxFallsPros.com — Sioux Falls, South Dakota</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
