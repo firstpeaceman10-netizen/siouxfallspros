@@ -1,91 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Browse all local service categories on SiouxFallsPros — your Sioux Falls, SD local professional directory." />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>All Categories — SiouxFallsPros</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet"/>
 </head>
 <body>
-
   <header class="header">
     <div class="container header-inner">
       <a href="index.html" class="logo">
-        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-          <rect width="36" height="36" rx="10" fill="#1a6fc4"/>
-          <path d="M10 18h16M18 10v16" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
-        </svg>
+        <div class="logo-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 2L26 10V26H18V18H10V26H2V10L14 2Z" fill="white"/></svg></div>
         <span>SiouxFalls<strong>Pros</strong></span>
       </a>
-      <nav class="nav">
+      <nav class="nav" id="mainNav">
         <a href="index.html">Home</a>
-        <a href="categories.html" class="active">Categories</a>
+        <a href="categories.html" class="active">All Categories</a>
         <a href="advertise.html">Advertise</a>
         <a href="advertise.html" class="btn-nav">List Your Business</a>
       </nav>
-      <button class="nav-toggle" onclick="toggleNav()" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-toggle" onclick="toggleNav()"><span></span><span></span><span></span></button>
     </div>
   </header>
 
-  <section class="cat-hero" style="padding:48px 0">
+  <section class="subcat-hero">
     <div class="container">
-      <h1 style="font-size:36px;font-weight:800;margin-bottom:10px">All Categories</h1>
-      <p style="font-size:17px;color:var(--text-2)">Browse every service category available on SiouxFallsPros</p>
+      <h1 class="subcat-title">All Categories</h1>
+      <p class="subcat-desc">Browse every service available on SiouxFallsPros</p>
     </div>
   </section>
 
-  <section class="categories-section">
+  <section style="padding:64px 0;background:var(--bg)">
     <div class="container">
-      <div class="category-grid">
-        <a href="category.html?cat=plumbers"     class="category-card"><div class="cat-icon">🔧</div><div class="cat-name">Plumbers</div><div class="cat-desc">Repairs, installs & emergencies</div></a>
-        <a href="category.html?cat=electricians" class="category-card"><div class="cat-icon">⚡</div><div class="cat-name">Electricians</div><div class="cat-desc">Wiring, panels & installations</div></a>
-        <a href="category.html?cat=hvac"         class="category-card"><div class="cat-icon">❄️</div><div class="cat-name">HVAC</div><div class="cat-desc">Heating, cooling & air quality</div></a>
-        <a href="category.html?cat=roofers"      class="category-card"><div class="cat-icon">🏠</div><div class="cat-name">Roofers</div><div class="cat-desc">Repair, replace & inspect</div></a>
-        <a href="category.html?cat=painters"     class="category-card"><div class="cat-icon">🎨</div><div class="cat-name">Painters</div><div class="cat-desc">Interior & exterior painting</div></a>
-        <a href="category.html?cat=lawncare"     class="category-card"><div class="cat-icon">🌿</div><div class="cat-name">Lawn Care</div><div class="cat-desc">Mowing, landscaping & snow</div></a>
-        <a href="category.html?cat=contractors"  class="category-card"><div class="cat-icon">🏗️</div><div class="cat-name">Contractors</div><div class="cat-desc">Remodeling & construction</div></a>
-        <a href="category.html?cat=handyman"     class="category-card"><div class="cat-icon">🔨</div><div class="cat-name">Handyman</div><div class="cat-desc">Odd jobs & home repairs</div></a>
-        <a href="category.html?cat=flooring"     class="category-card"><div class="cat-icon">🪵</div><div class="cat-name">Flooring</div><div class="cat-desc">Install, repair & refinish</div></a>
-        <a href="category.html?cat=cleaning"     class="category-card"><div class="cat-icon">✨</div><div class="cat-name">Cleaning</div><div class="cat-desc">Home & commercial cleaning</div></a>
+      <div class="main-cat-grid">
+        <a href="subcategory.html?cat=home"        class="main-cat-card" style="--accent:#2196F3"><div class="main-cat-info" style="padding:28px"><div class="main-cat-icon">🏠</div><h3>Home Services</h3><p>Plumbers, Electricians, HVAC & more</p><span class="main-cat-count">10 services</span></div></a>
+        <a href="subcategory.html?cat=auto"        class="main-cat-card" style="--accent:#F44336"><div class="main-cat-info" style="padding:28px"><div class="main-cat-icon">🚗</div><h3>Auto</h3><p>Mechanics, Body Shops, Tires & more</p><span class="main-cat-count">5 services</span></div></a>
+        <a href="subcategory.html?cat=health"      class="main-cat-card" style="--accent:#4CAF50"><div class="main-cat-info" style="padding:28px"><div class="main-cat-icon">⚕️</div><h3>Health & Wellness</h3><p>Dentists, Doctors, Chiropractors & more</p><span class="main-cat-count">7 services</span></div></a>
+        <a href="subcategory.html?cat=legal"       class="main-cat-card" style="--accent:#9C27B0"><div class="main-cat-info" style="padding:28px"><div class="main-cat-icon">⚖️</div><h3>Legal & Financial</h3><p>Attorneys, Accountants, Insurance & more</p><span class="main-cat-count">4 services</span></div></a>
+        <a href="subcategory.html?cat=food"        class="main-cat-card" style="--accent:#FF9800"><div class="main-cat-info" style="padding:28px"><div class="main-cat-icon">🍕</div><h3>Food & Dining</h3><p>Restaurants, Pizza, Bars & more</p><span class="main-cat-count">7 services</span></div></a>
+        <a href="subcategory.html?cat=beauty"      class="main-cat-card" style="--accent:#E91E63"><div class="main-cat-info" style="padding:28px"><div class="main-cat-icon">💇</div><h3>Beauty & Personal Care</h3><p>Salons, Barbershops, Spas & more</p><span class="main-cat-count">5 services</span></div></a>
+        <a href="subcategory.html?cat=lifestyle"   class="main-cat-card" style="--accent:#607D8B"><div class="main-cat-info" style="padding:28px"><div class="main-cat-icon">🛋️</div><h3>Home & Lifestyle</h3><p>Furniture, Movers, Photographers & more</p><span class="main-cat-count">6 services</span></div></a>
+        <a href="subcategory.html?cat=kids"        class="main-cat-card" style="--accent:#00BCD4"><div class="main-cat-info" style="padding:28px"><div class="main-cat-icon">👶</div><h3>Kids & Family</h3><p>Daycares, Tutoring, Activities & more</p><span class="main-cat-count">4 services</span></div></a>
+        <a href="subcategory.html?cat=pets"        class="main-cat-card" style="--accent:#8BC34A"><div class="main-cat-info" style="padding:28px"><div class="main-cat-icon">🐾</div><h3>Pets & Veterinarians</h3><p>Vets, Grooming, Boarding & more</p><span class="main-cat-count">4 services</span></div></a>
+        <a href="subcategory.html?cat=realestate"  class="main-cat-card" style="--accent:#FF5722"><div class="main-cat-info" style="padding:28px"><div class="main-cat-icon">🏡</div><h3>Real Estate</h3><p>Realtors, Mortgages, Inspectors & more</p><span class="main-cat-count">4 services</span></div></a>
       </div>
-    </div>
-  </section>
-
-  <section class="advertise-banner">
-    <div class="container advertise-inner">
-      <div class="advertise-text">
-        <h2>Don't see your category?</h2>
-        <p>We're always adding new categories. Contact us and we'll get your business listed.</p>
-      </div>
-      <a href="advertise.html" class="btn-white">Contact Us</a>
     </div>
   </section>
 
   <footer class="footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <a href="index.html" class="logo logo-white">
-          <svg width="28" height="28" viewBox="0 0 36 36" fill="none">
-            <rect width="36" height="36" rx="10" fill="#fff" fill-opacity="0.15"/>
-            <path d="M10 18h16M18 10v16" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
-          </svg>
-          <span>SiouxFalls<strong>Pros</strong></span>
-        </a>
-        <p>Connecting Sioux Falls With Local Professionals</p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="container">
-        <p>© 2025 SiouxFallsPros.com — Sioux Falls, South Dakota</p>
-      </div>
-    </div>
+    <div class="footer-bottom"><div class="container"><p style="text-align:center;color:rgba(255,255,255,0.3);font-size:13px">© 2025 SiouxFallsPros.com — Sioux Falls, South Dakota</p></div></div>
   </footer>
-
   <script src="js/main.js"></script>
 </body>
 </html>

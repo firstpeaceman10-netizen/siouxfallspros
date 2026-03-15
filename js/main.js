@@ -1,108 +1,96 @@
-// ── Mobile nav toggle ────────────────────────────────────────────
+// ── Mobile nav ────────────────────────────────────────────────────
 function toggleNav() {
-  document.querySelector('.nav').classList.toggle('open');
+  document.getElementById('mainNav')?.classList.toggle('open');
 }
-
-// Close nav when clicking outside
-document.addEventListener('click', function(e) {
-  const nav    = document.querySelector('.nav');
+document.addEventListener('click', e => {
+  const nav    = document.getElementById('mainNav');
   const toggle = document.querySelector('.nav-toggle');
   if (nav && toggle && !nav.contains(e.target) && !toggle.contains(e.target)) {
     nav.classList.remove('open');
   }
 });
 
-// ── Homepage search ──────────────────────────────────────────────
-function handleSearch(e) {
-  if (e.key === 'Enter') goSearch();
+// ── Homepage search ───────────────────────────────────────────────
+function handleServiceSearch(e) {
+  if (e.key === 'Enter') doSearch();
 }
 
-function goSearch() {
-  const q = document.getElementById('searchInput')?.value.trim().toLowerCase();
-  if (!q) return;
+function doSearch() {
+  const service  = document.getElementById('serviceSearch')?.value.trim().toLowerCase() || '';
+  if (!service) return;
 
-  // Map search terms to category pages
   const map = {
-    plumb:       'plumbers',
-    plumber:     'plumbers',
-    pipe:        'plumbers',
-    drain:       'plumbers',
-    electric:    'electricians',
-    electrician: 'electricians',
-    wiring:      'electricians',
-    outlet:      'electricians',
-    hvac:        'hvac',
-    heat:        'hvac',
-    furnace:     'hvac',
-    ac:          'hvac',
-    air:         'hvac',
-    cooling:     'hvac',
-    cool:        'hvac',
-    roof:        'roofers',
-    roofer:      'roofers',
-    shingle:     'roofers',
-    paint:       'painters',
-    painter:     'painters',
-    lawn:        'lawncare',
-    grass:       'lawncare',
-    mow:         'lawncare',
-    landscape:   'lawncare',
-    snow:        'lawncare',
-    contractor:  'contractors',
-    remodel:     'contractors',
-    construction:'contractors',
-    handyman:    'handyman',
-    repair:      'handyman',
-    fix:         'handyman',
-    floor:       'flooring',
-    carpet:      'flooring',
-    tile:        'flooring',
-    hardwood:    'flooring',
-    clean:       'cleaning',
-    maid:        'cleaning',
+    plumb:'home/plumbers', pipe:'home/plumbers', drain:'home/plumbers',
+    electric:'home/electricians', wiring:'home/electricians',
+    hvac:'home/hvac', heat:'home/hvac', furnace:'home/hvac', ac:'home/hvac', cool:'home/hvac',
+    roof:'home/roofers', shingle:'home/roofers',
+    paint:'home/painters',
+    lawn:'home/lawncare', grass:'home/lawncare', mow:'home/lawncare', snow:'home/lawncare', landscape:'home/lawncare',
+    contractor:'home/contractors', remodel:'home/contractors',
+    handyman:'home/handyman', repair:'home/handyman',
+    floor:'home/flooring', carpet:'home/flooring', tile:'home/flooring',
+    clean:'home/cleaning', maid:'home/cleaning',
+    mechanic:'auto/mechanics', car:'auto/mechanics', auto:'auto/mechanics',
+    tire:'auto/tires', tow:'auto/towing', oil:'auto/oilchange',
+    dentist:'health/dentists', tooth:'health/dentists',
+    doctor:'health/doctors', physician:'health/doctors',
+    chiropract:'health/chiropractic',
+    eye:'health/eyecare', vision:'health/eyecare',
+    therapy:'health/mentalhealth', counsel:'health/mentalhealth',
+    urgent:'health/urgentcare',
+    vet:'health/petvets', animal:'health/petvets',
+    attorney:'legal/attorneys', lawyer:'legal/attorneys',
+    account:'legal/accountants', tax:'legal/accountants',
+    insurance:'legal/insurance',
+    financial:'legal/financial', invest:'legal/financial',
+    restaurant:'food/restaurants', food:'food/restaurants',
+    pizza:'food/pizza',
+    mexican:'food/mexican', taco:'food/mexican',
+    chinese:'food/asian', asian:'food/asian', sushi:'food/asian',
+    breakfast:'food/breakfast',
+    bar:'food/bars', drink:'food/bars',
+    salon:'beauty/hairsalons', hair:'beauty/hairsalons',
+    barber:'beauty/barbershops',
+    nail:'beauty/nailsalons',
+    spa:'beauty/spas', massage:'beauty/spas',
+    tattoo:'beauty/tattoo',
+    realtor:'realestate/realtors', house:'realestate/realtors',
+    mortgage:'realestate/mortgage',
+    inspector:'realestate/homeinspectors',
   };
 
-  let matched = null;
-  for (const [keyword, cat] of Object.entries(map)) {
-    if (q.includes(keyword)) {
-      matched = cat;
-      break;
+  for (const [kw, path] of Object.entries(map)) {
+    if (service.includes(kw)) {
+      const [cat, sub] = path.split('/');
+      window.location.href = `category.html?cat=${cat}&sub=${sub}`;
+      return;
     }
   }
-
-  if (matched) {
-    window.location.href = `category.html?cat=${matched}`;
-  } else {
-    window.location.href = `categories.html?q=${encodeURIComponent(q)}`;
-  }
+  window.location.href = `categories.html?q=${encodeURIComponent(service)}`;
 }
 
-// ── Advertise form submit ────────────────────────────────────────
+// ── Form submit ───────────────────────────────────────────────────
 function submitForm(e) {
   e.preventDefault();
   const form    = document.getElementById('advertiseForm');
   const success = document.getElementById('formSuccess');
 
-  // In production, replace this with a real form service like Formspree or EmailJS
-  // For now it shows a success message
-  form.style.display    = 'none';
-  if (success) success.style.display = 'block';
-
-  // You can add Formspree here:
-  // fetch('https://formspree.io/f/YOUR_FORM_ID', {
-  //   method: 'POST',
-  //   body: new FormData(form),
-  //   headers: { 'Accept': 'application/json' }
-  // });
-}
-
-// ── Smooth scroll for anchor links ──────────────────────────────
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', function(e) {
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // Replace YOUR_FORM_ID with your Formspree form ID
+  // Get one free at formspree.io
+  fetch('https://formspree.io/f/YOUR_FORM_ID', {
+    method: 'POST',
+    body: new FormData(form),
+    headers: { 'Accept': 'application/json' },
+  }).then(r => {
+    if (r.ok) {
+      if (form)    form.style.display    = 'none';
+      if (success) success.style.display = 'block';
+    } else {
+      alert('Something went wrong. Please email us directly at hello@siouxfallspros.com');
     }
+  }).catch(() => {
+    // Fallback — just show success for now
+    if (form)    form.style.display    = 'none';
+    if (success) success.style.display = 'block';
   });
-});
+}

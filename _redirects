@@ -1,13 +1,18 @@
-# Cloudflare Pages redirects
-# Handles clean URLs
-
-/plumbers        /category.html?cat=plumbers        200
-/electricians    /category.html?cat=electricians    200
-/hvac            /category.html?cat=hvac            200
-/roofers         /category.html?cat=roofers         200
-/painters        /category.html?cat=painters        200
-/lawncare        /category.html?cat=lawncare        200
-/contractors     /category.html?cat=contractors     200
-/handyman        /category.html?cat=handyman        200
-/flooring        /category.html?cat=flooring        200
-/cleaning        /category.html?cat=cleaning        200
+# Clean URL redirects
+/home          /subcategory.html?cat=home        200
+/auto          /subcategory.html?cat=auto        200
+/health        /subcategory.html?cat=health      200
+/legal         /subcategory.html?cat=legal       200
+/food          /subcategory.html?cat=food        200
+/beauty        /subcategory.html?cat=beauty      200
+/lifestyle     /subcategory.html?cat=lifestyle   200
+/kids          /subcategory.html?cat=kids        200
+/pets          /subcategory.html?cat=pets        200
+/realestate    /subcategory.html?cat=realestate  200
+/plumbers      /category.html?cat=home&sub=plumbers      200
+/electricians  /category.html?cat=home&sub=electricians  200
+/hvac          /category.html?cat=home&sub=hvac          200
+/roofers       /category.html?cat=home&sub=roofers       200
+/dentists      /category.html?cat=health&sub=dentists    200
+/mechanics     /category.html?cat=auto&sub=mechanics     200
+/restaurants   /category.html?cat=food&sub=restaurants   200

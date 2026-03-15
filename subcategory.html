@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Category — SiouxFallsPros</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 2L26 10V26H18V18H10V26H2V10L14 2Z" fill="white"/></svg></div>
+        <span>SiouxFalls<strong>Pros</strong></span>
+      </a>
+      <nav class="nav" id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="categories.html">All Categories</a>
+        <a href="advertise.html">Advertise</a>
+        <a href="advertise.html" class="btn-nav">List Your Business</a>
+      </nav>
+      <button class="nav-toggle" onclick="toggleNav()"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <section class="subcat-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>›</span>
+        <span id="catName">Category</span>
+      </div>
+      <h1 class="subcat-title" id="catTitle">Loading…</h1>
+      <p class="subcat-desc" id="catDesc"></p>
+    </div>
+  </section>
+
+  <!-- Premium spotlight -->
+  <section class="container" style="padding:32px 24px 0">
+    <div id="premiumSpotlight"></div>
+  </section>
+
+  <section class="subcat-section">
+    <div class="container">
+      <div class="section-header" style="text-align:left;margin-bottom:28px">
+        <h2>Browse by Service</h2>
+        <p>Select a service to see top-rated pros in Sioux Falls</p>
+      </div>
+      <div class="subcat-grid" id="subcatGrid"></div>
+    </div>
+  </section>
+
+  <section class="advertise-banner" style="padding:48px 0">
+    <div class="container advertise-inner">
+      <div class="adv-left">
+        <div class="adv-badge">Premium Spotlight — 1 spot only</div>
+        <h2>Be the first business customers see</h2>
+        <p>The Premium Spotlight puts your business at the very top of this category page — before anyone clicks a subcategory. Only one spot available. $50/month.</p>
+      </div>
+      <a href="advertise.html" class="btn-white-lg">Claim the Spotlight →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-bottom" style="padding:20px 0">
+      <div class="container"><p style="text-align:center;color:rgba(255,255,255,0.3);font-size:13px">© 2025 SiouxFallsPros.com — Sioux Falls, South Dakota</p></div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    const params  = new URLSearchParams(window.location.search);
+    const catKey  = params.get('cat') || 'home';
+    const catData = CATEGORIES[catKey];
+
+    if (catData) {
+      document.title = `${catData.name} — SiouxFallsPros`;
+      document.getElementById('catName').textContent  = catData.name;
+      document.getElementById('catTitle').textContent = catData.name + ' in Sioux Falls';
+      document.getElementById('catDesc').textContent  = catData.desc;
+
+      // Premium spotlight
+      if (catData.spotlight) {
+        const s = catData.spotlight;
+        document.getElementById('premiumSpotlight').innerHTML = `
+          <div class="biz-card premium" style="margin-bottom:0;background:linear-gradient(135deg,#fffdf0,white)">
+            <div class="biz-logo" style="background:#FFF8E1;font-size:36px">${s.emoji}</div>
+            <div class="biz-info">
+              <div class="biz-top">
+                <div class="biz-name">${s.name}</div>
+                <span class="premium-badge">⭐ Premium Spotlight</span>
+              </div>
+              <div class="biz-rating">
+                <span class="stars">${renderStars(s.rating)}</span>
+                <span class="rating-num">${s.rating.toFixed(1)}</span>
+                <span class="review-count">(${s.reviews} reviews)</span>
+              </div>
+              <div class="biz-desc">${s.description}</div>
+              <div class="biz-actions">
+                <a href="tel:${s.phone.replace(/\D/g,'')}" class="btn-call">📞 ${s.phone}</a>
+                ${s.website ? `<a href="${s.website}" target="_blank" class="btn-website">🌐 Website</a>` : ''}
+              </div>
+            </div>
+          </div>`;
+      } else {
+        document.getElementById('premiumSpotlight').innerHTML = `
+          <div style="border:2px dashed #e2e8f0;border-radius:14px;padding:28px;text-align:center;margin-bottom:0;background:#fafcff">
+            <div style="font-size:32px;margin-bottom:10px">⭐</div>
+            <h3 style="font-size:18px;font-weight:800;margin-bottom:6px">Premium Spotlight — Available</h3>
+            <p style="color:#718096;font-size:14px;margin-bottom:16px">Be the first business customers see on this page. Only 1 spot. $50/month.</p>
+            <a href="advertise.html" class="btn-primary">Claim This Spot</a>
+          </div>`;
+      }
+
+      // Subcategories
+      const grid = document.getElementById('subcatGrid');
+      catData.subcategories.forEach(sub => {
+        const a = document.createElement('a');
+        a.href = `category.html?cat=${catKey}&sub=${sub.key}`;
+        a.className = 'subcat-card';
+        a.innerHTML = `
+          <div class="subcat-visual">${sub.icon}</div>
+          <div class="subcat-name">${sub.name}</div>
+          <div class="subcat-desc-text">${sub.desc}</div>`;
+        grid.appendChild(a);
+      });
+    }
+
+    function renderStars(r) {
+      if (!r) return '';
+      return '★'.repeat(Math.floor(r)) + (r%1>=0.5?'½':'') + '☆'.repeat(5-Math.floor(r)-(r%1>=0.5?1:0));
+    }
+  </script>
+</body>
+</html>

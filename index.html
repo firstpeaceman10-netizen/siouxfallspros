@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Find trusted local professionals in Sioux Falls, SD. Browse top-rated plumbers, electricians, HVAC, roofers, painters and more." />
-  <meta name="keywords" content="Sioux Falls contractors, Sioux Falls plumbers, Sioux Falls electricians, local pros Sioux Falls SD" />
+  <meta name="description" content="Find trusted local professionals in Sioux Falls, SD. Top-rated plumbers, electricians, HVAC, dentists, restaurants and more. Only 4.5+ star businesses featured." />
+  <meta name="keywords" content="Sioux Falls local pros, Sioux Falls contractors, Sioux Falls plumbers, Sioux Falls dentists, Sioux Falls restaurants, local business directory SD" />
   <title>SiouxFallsPros — Connecting Sioux Falls With Local Professionals</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1KwC-xwi7TQI5DvEGU6LZ-FtX-nyWYvI&libraries=places" async defer></script>
 </head>
 <body>
 
@@ -17,15 +18,16 @@
   <header class="header">
     <div class="container header-inner">
       <a href="index.html" class="logo">
-        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-          <rect width="36" height="36" rx="10" fill="#1a6fc4"/>
-          <path d="M10 18h16M18 10v16" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
-        </svg>
+        <div class="logo-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <path d="M14 2L26 10V26H18V18H10V26H2V10L14 2Z" fill="white"/>
+          </svg>
+        </div>
         <span>SiouxFalls<strong>Pros</strong></span>
       </a>
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="categories.html">Categories</a>
+      <nav class="nav" id="mainNav">
+        <a href="index.html" class="active">Home</a>
+        <a href="categories.html">All Categories</a>
         <a href="advertise.html">Advertise</a>
         <a href="advertise.html" class="btn-nav">List Your Business</a>
       </nav>
@@ -37,121 +39,483 @@
 
   <!-- ── HERO ───────────────────────────────────────────────────── -->
   <section class="hero">
-    <div class="container">
+    <div class="hero-bg">
+      <div class="hero-house">
+        <svg viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <!-- Sky gradient -->
+          <defs>
+            <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#87CEEB"/>
+              <stop offset="100%" stop-color="#E8F4FD"/>
+            </linearGradient>
+            <linearGradient id="grassGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#4CAF50"/>
+              <stop offset="100%" stop-color="#388E3C"/>
+            </linearGradient>
+            <linearGradient id="houseGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#F5F0E8"/>
+              <stop offset="100%" stop-color="#E8E0D0"/>
+            </linearGradient>
+          </defs>
+          <!-- Sky -->
+          <rect width="1200" height="500" fill="url(#skyGrad)"/>
+          <!-- Clouds -->
+          <ellipse cx="200" cy="80" rx="80" ry="30" fill="white" opacity="0.9"/>
+          <ellipse cx="260" cy="70" rx="60" ry="25" fill="white" opacity="0.9"/>
+          <ellipse cx="140" cy="75" rx="50" ry="22" fill="white" opacity="0.9"/>
+          <ellipse cx="900" cy="60" rx="90" ry="32" fill="white" opacity="0.8"/>
+          <ellipse cx="970" cy="50" rx="70" ry="28" fill="white" opacity="0.8"/>
+          <!-- Sun -->
+          <circle cx="1050" cy="100" r="50" fill="#FFD700" opacity="0.6"/>
+          <!-- Grass -->
+          <rect x="0" y="380" width="1200" height="120" fill="url(#grassGrad)"/>
+          <!-- Path -->
+          <polygon points="560,380 640,380 660,500 540,500" fill="#D2B48C"/>
+          <!-- Main house body -->
+          <rect x="350" y="200" width="500" height="200" fill="url(#houseGrad)" stroke="#D4C5A9" stroke-width="2"/>
+          <!-- Roof -->
+          <polygon points="310,210 600,80 890,210" fill="#8B4513"/>
+          <polygon points="310,210 600,80 890,210" fill="#A0522D" opacity="0.5"/>
+          <!-- Roof trim -->
+          <line x1="310" y1="210" x2="890" y2="210" stroke="#6B3410" stroke-width="4"/>
+          <!-- Chimney -->
+          <rect x="720" y="90" width="50" height="100" fill="#8B4513"/>
+          <rect x="715" y="85" width="60" height="15" fill="#6B3410"/>
+          <!-- Smoke from chimney -->
+          <ellipse cx="745" cy="70" rx="12" ry="8" fill="#ccc" opacity="0.5" class="smoke smoke1"/>
+          <ellipse cx="750" cy="52" rx="10" ry="7" fill="#ccc" opacity="0.4" class="smoke smoke2"/>
+          <ellipse cx="742" cy="36" rx="8" ry="6" fill="#ccc" opacity="0.3" class="smoke smoke3"/>
+          <!-- Front door -->
+          <rect x="555" y="300" width="90" height="100" fill="#8B4513" rx="5"/>
+          <rect x="560" y="305" width="80" height="90" fill="#A0522D" rx="3"/>
+          <circle cx="600" cy="358" r="5" fill="#FFD700"/>
+          <!-- Windows -->
+          <rect x="390" y="240" width="100" height="80" fill="#87CEEB" stroke="#D4C5A9" stroke-width="3" rx="3"/>
+          <line x1="440" y1="240" x2="440" y2="320" stroke="#D4C5A9" stroke-width="2"/>
+          <line x1="390" y1="280" x2="490" y2="280" stroke="#D4C5A9" stroke-width="2"/>
+          <rect x="710" y="240" width="100" height="80" fill="#87CEEB" stroke="#D4C5A9" stroke-width="3" rx="3"/>
+          <line x1="760" y1="240" x2="760" y2="320" stroke="#D4C5A9" stroke-width="2"/>
+          <line x1="710" y1="280" x2="810" y2="280" stroke="#D4C5A9" stroke-width="2"/>
+          <!-- Garage -->
+          <rect x="150" y="270" width="160" height="130" fill="#E8E0D0" stroke="#D4C5A9" stroke-width="2"/>
+          <rect x="155" y="310" width="150" height="90" fill="#D4C5A9" stroke="#C0B090" stroke-width="2"/>
+          <line x1="155" y1="355" x2="305" y2="355" stroke="#C0B090" stroke-width="2"/>
+          <line x1="230" y1="310" x2="230" y2="400" stroke="#C0B090" stroke-width="2"/>
+          <!-- Garage roof -->
+          <polygon points="130,275 230,200 330,275" fill="#8B4513"/>
+          <!-- Trees -->
+          <rect x="60" y="310" width="20" height="80" fill="#8B4513"/>
+          <ellipse cx="70" cy="290" rx="45" ry="50" fill="#2E7D32"/>
+          <ellipse cx="70" cy="275" rx="35" ry="40" fill="#388E3C"/>
+          <rect x="1080" y="320" width="18" height="70" fill="#8B4513"/>
+          <ellipse cx="1089" cy="300" rx="40" ry="45" fill="#2E7D32"/>
+          <ellipse cx="1089" cy="285" rx="30" ry="35" fill="#388E3C"/>
+          <!-- Flowers -->
+          <circle cx="350" cy="385" r="8" fill="#FF6B6B"/>
+          <circle cx="370" cy="380" r="6" fill="#FFD700"/>
+          <circle cx="390" cy="383" r="7" fill="#FF6B6B"/>
+          <circle cx="810" cy="385" r="8" fill="#FF69B4"/>
+          <circle cx="830" cy="380" r="6" fill="#FFD700"/>
+          <circle cx="850" cy="383" r="7" fill="#FF69B4"/>
+          <!-- AC Unit outside -->
+          <rect x="870" y="340" width="60" height="45" fill="#9E9E9E" stroke="#757575" stroke-width="2" rx="3"/>
+          <rect x="875" y="345" width="50" height="35" fill="#BDBDBD" rx="2"/>
+          <circle cx="900" cy="362" r="12" fill="#9E9E9E" stroke="#757575" stroke-width="1"/>
+          <line x1="900" y1="350" x2="900" y2="374" stroke="#757575" stroke-width="1"/>
+          <line x1="888" y1="362" x2="912" y2="362" stroke="#757575" stroke-width="1"/>
+        </svg>
+      </div>
+      <div class="hero-overlay"></div>
+    </div>
+
+    <div class="container hero-content">
       <div class="hero-text">
-        <h1>Connecting Sioux Falls<br/>With Local Professionals</h1>
-        <p>Find trusted, top-rated local pros for your home. Real reviews from real Sioux Falls neighbors.</p>
+        <div class="hero-badge">
+          <span>⭐</span> Only 4.5+ Star Businesses Featured
+        </div>
+        <h1>Connecting Sioux Falls<br/><span>With Local Professionals</span></h1>
+        <p>Find trusted, top-rated local pros for your home, car, health and more. Real businesses. Real reviews. Real Sioux Falls.</p>
       </div>
 
-      <!-- Search bar -->
-      <div class="search-bar">
-        <div class="search-inner">
-          <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-          </svg>
-          <input type="text" id="searchInput" placeholder="Search plumbers, electricians, HVAC…" onkeyup="handleSearch(event)" />
-          <button onclick="goSearch()">Search</button>
+      <!-- Location search -->
+      <div class="hero-search">
+        <div class="search-box">
+          <div class="search-field">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input type="text" id="serviceSearch" placeholder="What do you need? (plumber, dentist…)" onkeyup="handleServiceSearch(event)" />
+          </div>
+          <div class="search-divider"></div>
+          <div class="search-field">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <input type="text" id="locationSearch" placeholder="Your address or zip code" />
+          </div>
+          <button class="search-btn" onclick="doSearch()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            Find Pros
+          </button>
+        </div>
+        <div class="search-popular">
+          <span>Popular:</span>
+          <a href="category.html?cat=plumbers&sub=plumbers">Plumbers</a>
+          <a href="category.html?cat=health&sub=dentists">Dentists</a>
+          <a href="category.html?cat=auto&sub=mechanics">Mechanics</a>
+          <a href="category.html?cat=food&sub=restaurants">Restaurants</a>
+          <a href="category.html?cat=home&sub=hvac">HVAC</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MAIN CATEGORIES ────────────────────────────────────────── -->
+  <section class="main-cats-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>What can we help you find?</h2>
+        <p>Click a category to browse top-rated local pros</p>
+      </div>
+
+      <div class="main-cat-grid">
+
+        <a href="subcategory.html?cat=home" class="main-cat-card" style="--accent:#2196F3">
+          <div class="main-cat-visual">
+            <svg viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg">
+              <!-- House -->
+              <rect x="20" y="45" width="80" height="50" fill="#F5F0E8" stroke="#D4C5A9" stroke-width="2"/>
+              <polygon points="10,48 60,15 110,48" fill="#8B4513"/>
+              <!-- Door -->
+              <rect x="48" y="68" width="24" height="27" fill="#8B4513" rx="2"/>
+              <!-- Window with dripping water -->
+              <rect x="22" y="52" width="25" height="20" fill="#87CEEB" stroke="#D4C5A9" stroke-width="1.5" rx="1"/>
+              <!-- Leaking pipe on side -->
+              <rect x="100" y="55" width="8" height="30" fill="#9E9E9E" stroke="#757575" stroke-width="1"/>
+              <ellipse cx="104" cy="88" rx="6" ry="4" fill="#64B5F6" opacity="0.8"/>
+              <ellipse cx="102" cy="92" rx="4" ry="3" fill="#64B5F6" opacity="0.6"/>
+              <ellipse cx="105" cy="95" rx="3" ry="2" fill="#64B5F6" opacity="0.4"/>
+            </svg>
+          </div>
+          <div class="main-cat-info">
+            <div class="main-cat-icon">🏠</div>
+            <h3>Home Services</h3>
+            <p>Plumbers, Electricians, HVAC & more</p>
+            <span class="main-cat-count">10 services</span>
+          </div>
+        </a>
+
+        <a href="subcategory.html?cat=auto" class="main-cat-card" style="--accent:#F44336">
+          <div class="main-cat-visual">
+            <svg viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg">
+              <!-- Car -->
+              <rect x="15" y="55" width="90" height="30" fill="#1565C0" rx="5"/>
+              <rect x="25" y="40" width="65" height="25" fill="#1976D2" rx="8"/>
+              <!-- Windows -->
+              <rect x="30" y="43" width="25" height="18" fill="#87CEEB" rx="3"/>
+              <rect x="62" y="43" width="25" height="18" fill="#87CEEB" rx="3"/>
+              <!-- Wheels -->
+              <circle cx="35" cy="85" r="12" fill="#212121"/>
+              <circle cx="35" cy="85" r="7" fill="#616161"/>
+              <circle cx="85" cy="85" r="12" fill="#212121"/>
+              <circle cx="85" cy="85" r="7" fill="#616161"/>
+              <!-- Wrench -->
+              <rect x="90" y="30" width="6" height="25" fill="#9E9E9E" rx="3" transform="rotate(30 93 42)"/>
+              <circle cx="88" cy="28" r="5" fill="#757575" stroke="#9E9E9E" stroke-width="1"/>
+            </svg>
+          </div>
+          <div class="main-cat-info">
+            <div class="main-cat-icon">🚗</div>
+            <h3>Auto</h3>
+            <p>Mechanics, Body Shops, Tires & more</p>
+            <span class="main-cat-count">5 services</span>
+          </div>
+        </a>
+
+        <a href="subcategory.html?cat=health" class="main-cat-card" style="--accent:#4CAF50">
+          <div class="main-cat-visual">
+            <svg viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg">
+              <!-- Medical cross -->
+              <rect x="45" y="20" width="30" height="70" fill="#EF5350" rx="5"/>
+              <rect x="20" y="40" width="80" height="30" fill="#EF5350" rx="5"/>
+              <rect x="48" y="23" width="24" height="64" fill="#FFCDD2" rx="3" opacity="0.5"/>
+              <!-- Tooth -->
+              <ellipse cx="85" cy="70" rx="18" ry="20" fill="white" stroke="#E0E0E0" stroke-width="2"/>
+              <ellipse cx="78" cy="78" rx="6" ry="8" fill="#F5F5F5"/>
+              <ellipse cx="92" cy="78" rx="6" ry="8" fill="#F5F5F5"/>
+              <path d="M 85 62 Q 95 60 95 72" stroke="#E0E0E0" stroke-width="1" fill="none"/>
+            </svg>
+          </div>
+          <div class="main-cat-info">
+            <div class="main-cat-icon">⚕️</div>
+            <h3>Health & Wellness</h3>
+            <p>Dentists, Doctors, Chiropractors & more</p>
+            <span class="main-cat-count">7 services</span>
+          </div>
+        </a>
+
+        <a href="subcategory.html?cat=legal" class="main-cat-card" style="--accent:#9C27B0">
+          <div class="main-cat-visual">
+            <svg viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg">
+              <!-- Scale of justice -->
+              <rect x="57" y="20" width="6" height="65" fill="#9E9E9E"/>
+              <rect x="35" y="20" width="50" height="6" fill="#757575" rx="3"/>
+              <!-- Left pan -->
+              <line x1="60" y1="26" x2="30" y2="55" stroke="#9E9E9E" stroke-width="2"/>
+              <ellipse cx="30" cy="58" rx="20" ry="6" fill="#E0E0E0" stroke="#9E9E9E" stroke-width="1.5"/>
+              <!-- Right pan -->
+              <line x1="60" y1="26" x2="90" y2="55" stroke="#9E9E9E" stroke-width="2"/>
+              <ellipse cx="90" cy="58" rx="20" ry="6" fill="#E0E0E0" stroke="#9E9E9E" stroke-width="1.5"/>
+              <!-- Base -->
+              <rect x="45" y="82" width="30" height="8" fill="#757575" rx="2"/>
+              <!-- Dollar sign -->
+              <text x="84" y="55" font-size="14" fill="#4CAF50" font-weight="bold">$</text>
+            </svg>
+          </div>
+          <div class="main-cat-info">
+            <div class="main-cat-icon">⚖️</div>
+            <h3>Legal & Financial</h3>
+            <p>Attorneys, Accountants, Insurance & more</p>
+            <span class="main-cat-count">4 services</span>
+          </div>
+        </a>
+
+        <a href="subcategory.html?cat=food" class="main-cat-card" style="--accent:#FF9800">
+          <div class="main-cat-visual">
+            <svg viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg">
+              <!-- Pizza -->
+              <polygon points="60,15 110,85 10,85" fill="#FF9800"/>
+              <polygon points="60,15 110,85 10,85" fill="#FFA726" opacity="0.5"/>
+              <!-- Crust -->
+              <path d="M 10,85 Q 60,100 110,85" stroke="#8D6E63" stroke-width="8" fill="none"/>
+              <!-- Toppings -->
+              <circle cx="60" cy="55" r="7" fill="#F44336"/>
+              <circle cx="45" cy="65" r="6" fill="#F44336"/>
+              <circle cx="75" cy="65" r="6" fill="#F44336"/>
+              <circle cx="55" cy="40" r="5" fill="#F44336"/>
+              <circle cx="68" cy="42" r="4" fill="#4CAF50"/>
+              <circle cx="50" cy="72" r="4" fill="#4CAF50"/>
+              <!-- Steam lines -->
+              <path d="M 50 12 Q 45 5 50 -1" stroke="#ccc" stroke-width="2" fill="none" opacity="0.7"/>
+              <path d="M 60 10 Q 55 3 60 -3" stroke="#ccc" stroke-width="2" fill="none" opacity="0.7"/>
+              <path d="M 70 12 Q 65 5 70 -1" stroke="#ccc" stroke-width="2" fill="none" opacity="0.7"/>
+            </svg>
+          </div>
+          <div class="main-cat-info">
+            <div class="main-cat-icon">🍕</div>
+            <h3>Food & Dining</h3>
+            <p>Restaurants, Pizza, Bars & more</p>
+            <span class="main-cat-count">7 services</span>
+          </div>
+        </a>
+
+        <a href="subcategory.html?cat=beauty" class="main-cat-card" style="--accent:#E91E63">
+          <div class="main-cat-visual">
+            <svg viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg">
+              <!-- Mirror -->
+              <ellipse cx="60" cy="40" rx="35" ry="38" fill="#E3F2FD" stroke="#90CAF9" stroke-width="3"/>
+              <rect x="55" y="76" width="10" height="20" fill="#9E9E9E"/>
+              <rect x="42" y="93" width="36" height="6" fill="#9E9E9E" rx="3"/>
+              <!-- Scissors -->
+              <line x1="80" y1="15" x2="100" y2="40" stroke="#9E9E9E" stroke-width="3"/>
+              <line x1="100" y1="15" x2="80" y2="40" stroke="#9E9E9E" stroke-width="3"/>
+              <circle cx="83" cy="13" r="5" fill="none" stroke="#9E9E9E" stroke-width="2.5"/>
+              <circle cx="97" cy="13" r="5" fill="none" stroke="#9E9E9E" stroke-width="2.5"/>
+              <!-- Sparkles -->
+              <text x="20" y="25" font-size="16" fill="#FFD700">✨</text>
+              <text x="90" y="65" font-size="12" fill="#FFD700">✨</text>
+            </svg>
+          </div>
+          <div class="main-cat-info">
+            <div class="main-cat-icon">💇</div>
+            <h3>Beauty & Personal Care</h3>
+            <p>Salons, Barbershops, Spas & more</p>
+            <span class="main-cat-count">5 services</span>
+          </div>
+        </a>
+
+        <a href="subcategory.html?cat=lifestyle" class="main-cat-card" style="--accent:#607D8B">
+          <div class="main-cat-visual">
+            <svg viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg">
+              <!-- Sofa -->
+              <rect x="10" y="55" width="100" height="35" fill="#795548" rx="8"/>
+              <rect x="15" y="45" width="90" height="20" fill="#8D6E63" rx="6"/>
+              <rect x="10" y="45" width="20" height="45" fill="#6D4C41" rx="5"/>
+              <rect x="90" y="45" width="20" height="45" fill="#6D4C41" rx="5"/>
+              <!-- Cushions -->
+              <rect x="20" y="48" width="38" height="18" fill="#A1887F" rx="4"/>
+              <rect x="62" y="48" width="38" height="18" fill="#A1887F" rx="4"/>
+              <!-- Camera for photographer -->
+              <rect x="75" y="15" width="35" height="25" fill="#212121" rx="4"/>
+              <circle cx="92" cy="27" r="8" fill="#424242"/>
+              <circle cx="92" cy="27" r="5" fill="#1565C0"/>
+              <rect x="85" y="12" width="12" height="6" fill="#212121" rx="2"/>
+            </svg>
+          </div>
+          <div class="main-cat-info">
+            <div class="main-cat-icon">🛋️</div>
+            <h3>Home & Lifestyle</h3>
+            <p>Furniture, Movers, Photographers & more</p>
+            <span class="main-cat-count">6 services</span>
+          </div>
+        </a>
+
+        <a href="subcategory.html?cat=kids" class="main-cat-card" style="--accent:#00BCD4">
+          <div class="main-cat-visual">
+            <svg viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg">
+              <!-- School building -->
+              <rect x="20" y="40" width="80" height="55" fill="#FFF9C4" stroke="#F9A825" stroke-width="2"/>
+              <polygon points="15,43 60,15 105,43" fill="#F9A825"/>
+              <!-- Flag -->
+              <rect x="57" y="10" width="3" height="25" fill="#9E9E9E"/>
+              <polygon points="60,10 80,18 60,26" fill="#F44336"/>
+              <!-- Door -->
+              <rect x="50" y="72" width="20" height="23" fill="#F9A825" rx="2"/>
+              <!-- Windows -->
+              <rect x="28" y="52" width="22" height="18" fill="#87CEEB" stroke="#F9A825" stroke-width="1.5" rx="1"/>
+              <rect x="70" y="52" width="22" height="18" fill="#87CEEB" stroke="#F9A825" stroke-width="1.5" rx="1"/>
+              <!-- ABC text -->
+              <text x="25" y="48" font-size="10" fill="#F9A825" font-weight="bold">ABC</text>
+            </svg>
+          </div>
+          <div class="main-cat-info">
+            <div class="main-cat-icon">👶</div>
+            <h3>Kids & Family</h3>
+            <p>Daycares, Tutoring, Activities & more</p>
+            <span class="main-cat-count">4 services</span>
+          </div>
+        </a>
+
+        <a href="subcategory.html?cat=pets" class="main-cat-card" style="--accent:#8BC34A">
+          <div class="main-cat-visual">
+            <svg viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg">
+              <!-- Dog -->
+              <ellipse cx="60" cy="65" rx="30" ry="22" fill="#A1887F"/>
+              <!-- Head -->
+              <circle cx="88" cy="50" r="18" fill="#A1887F"/>
+              <!-- Ears -->
+              <ellipse cx="80" cy="36" rx="8" ry="12" fill="#8D6E63" transform="rotate(-20 80 36)"/>
+              <ellipse cx="98" cy="36" rx="8" ry="12" fill="#8D6E63" transform="rotate(20 98 36)"/>
+              <!-- Eyes -->
+              <circle cx="84" cy="48" r="4" fill="#212121"/>
+              <circle cx="94" cy="48" r="4" fill="#212121"/>
+              <circle cx="85" cy="47" r="1.5" fill="white"/>
+              <circle cx="95" cy="47" r="1.5" fill="white"/>
+              <!-- Nose -->
+              <ellipse cx="89" cy="55" rx="5" ry="3" fill="#4E342E"/>
+              <!-- Tail wagging -->
+              <path d="M 32 60 Q 15 40 20 25" stroke="#A1887F" stroke-width="8" fill="none" stroke-linecap="round"/>
+              <!-- Paw -->
+              <ellipse cx="45" cy="85" rx="10" ry="7" fill="#8D6E63"/>
+              <ellipse cx="75" cy="85" rx="10" ry="7" fill="#8D6E63"/>
+              <!-- Heart -->
+              <text x="10" y="30" font-size="20" fill="#EF5350">♥</text>
+            </svg>
+          </div>
+          <div class="main-cat-info">
+            <div class="main-cat-icon">🐾</div>
+            <h3>Pets & Veterinarians</h3>
+            <p>Vets, Grooming, Boarding & more</p>
+            <span class="main-cat-count">4 services</span>
+          </div>
+        </a>
+
+        <a href="subcategory.html?cat=realestate" class="main-cat-card" style="--accent:#FF5722">
+          <div class="main-cat-visual">
+            <svg viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg">
+              <!-- For Sale sign -->
+              <rect x="35" y="30" width="65" height="45" fill="white" stroke="#F44336" stroke-width="3" rx="4"/>
+              <rect x="35" y="30" width="65" height="18" fill="#F44336" rx="4"/>
+              <text x="42" y="44" font-size="11" fill="white" font-weight="bold">FOR SALE</text>
+              <text x="40" y="58" font-size="9" fill="#F44336" font-weight="bold">SIOUX FALLS</text>
+              <text x="48" y="68" font-size="8" fill="#9E9E9E">siouxfallspros.com</text>
+              <!-- Post -->
+              <rect x="62" y="73" width="6" height="25" fill="#9E9E9E"/>
+              <!-- House tiny -->
+              <rect x="10" y="55" width="30" height="25" fill="#FFF9C4" stroke="#F9A825" stroke-width="1.5"/>
+              <polygon points="5,57 25,40 45,57" fill="#F9A825"/>
+              <rect x="20" y="65" width="10" height="15" fill="#F9A825" rx="1"/>
+            </svg>
+          </div>
+          <div class="main-cat-info">
+            <div class="main-cat-icon">🏡</div>
+            <h3>Real Estate</h3>
+            <p>Realtors, Mortgages, Inspectors & more</p>
+            <span class="main-cat-count">4 services</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FIND PROS NEAR YOU MAP ─────────────────────────────────── -->
+  <section class="map-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>📍 Find Vendors Near You</h2>
+        <p>Type your address to see top-rated pros closest to your home</p>
+      </div>
+
+      <div class="map-search-bar">
+        <div class="map-search-inner">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <input type="text" id="mapAddressInput" placeholder="Enter your address (e.g. 123 Main St, Sioux Falls)" />
+          <select id="mapCategorySelect">
+            <option value="all">All Categories</option>
+            <option value="plumber">Plumbers</option>
+            <option value="electrician">Electricians</option>
+            <option value="hvac">HVAC</option>
+            <option value="dentist">Dentists</option>
+            <option value="mechanic">Mechanics</option>
+            <option value="restaurant">Restaurants</option>
+            <option value="lawyer">Attorneys</option>
+            <option value="hair salon">Hair Salons</option>
+          </select>
+          <button onclick="findNearbyPros()" class="map-search-btn">Find Nearby Pros</button>
+        </div>
+      </div>
+
+      <div class="map-layout">
+        <div id="map" class="map-container"></div>
+        <div class="map-results" id="mapResults">
+          <div class="map-results-placeholder">
+            <div class="map-placeholder-icon">📍</div>
+            <h3>Enter your address above</h3>
+            <p>We'll show you the closest top-rated pros in Sioux Falls</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── CATEGORY TILES ─────────────────────────────────────────── -->
-  <section class="categories-section">
+  <!-- ── TRUST BADGES ────────────────────────────────────────────── -->
+  <section class="trust-section">
     <div class="container">
-      <h2 class="section-title">What do you need help with?</h2>
-      <p class="section-sub">Click a category to see top-rated local pros in Sioux Falls</p>
-
-      <div class="category-grid">
-
-        <a href="category.html?cat=plumbers" class="category-card">
-          <div class="cat-icon">🔧</div>
-          <div class="cat-name">Plumbers</div>
-          <div class="cat-desc">Repairs, installs & emergencies</div>
-        </a>
-
-        <a href="category.html?cat=electricians" class="category-card">
-          <div class="cat-icon">⚡</div>
-          <div class="cat-name">Electricians</div>
-          <div class="cat-desc">Wiring, panels & installations</div>
-        </a>
-
-        <a href="category.html?cat=hvac" class="category-card">
-          <div class="cat-icon">❄️</div>
-          <div class="cat-name">HVAC</div>
-          <div class="cat-desc">Heating, cooling & air quality</div>
-        </a>
-
-        <a href="category.html?cat=roofers" class="category-card">
-          <div class="cat-icon">🏠</div>
-          <div class="cat-name">Roofers</div>
-          <div class="cat-desc">Repair, replace & inspect</div>
-        </a>
-
-        <a href="category.html?cat=painters" class="category-card">
-          <div class="cat-icon">🎨</div>
-          <div class="cat-name">Painters</div>
-          <div class="cat-desc">Interior & exterior painting</div>
-        </a>
-
-        <a href="category.html?cat=lawncare" class="category-card">
-          <div class="cat-icon">🌿</div>
-          <div class="cat-name">Lawn Care</div>
-          <div class="cat-desc">Mowing, landscaping & snow</div>
-        </a>
-
-        <a href="category.html?cat=contractors" class="category-card">
-          <div class="cat-icon">🏗️</div>
-          <div class="cat-name">Contractors</div>
-          <div class="cat-desc">Remodeling & construction</div>
-        </a>
-
-        <a href="category.html?cat=handyman" class="category-card">
-          <div class="cat-icon">🔨</div>
-          <div class="cat-name">Handyman</div>
-          <div class="cat-desc">Odd jobs & home repairs</div>
-        </a>
-
-        <a href="category.html?cat=flooring" class="category-card">
-          <div class="cat-icon">🪵</div>
-          <div class="cat-name">Flooring</div>
-          <div class="cat-desc">Install, repair & refinish</div>
-        </a>
-
-        <a href="category.html?cat=cleaning" class="category-card">
-          <div class="cat-icon">✨</div>
-          <div class="cat-name">Cleaning</div>
-          <div class="cat-desc">Home & commercial cleaning</div>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ── WHY US ──────────────────────────────────────────────────── -->
-  <section class="why-section">
-    <div class="container">
-      <h2 class="section-title">Why SiouxFallsPros?</h2>
-      <div class="why-grid">
-        <div class="why-card">
-          <div class="why-icon">📍</div>
-          <h3>100% Local</h3>
-          <p>Every business listed serves the Sioux Falls area. No out-of-state companies, no national chains — just your neighbors.</p>
+      <div class="trust-grid">
+        <div class="trust-item">
+          <div class="trust-icon">⭐</div>
+          <div class="trust-text">
+            <strong>4.5+ Stars Only</strong>
+            <span>Featured pros must maintain a 4.5 star Google rating</span>
+          </div>
         </div>
-        <div class="why-card">
-          <div class="why-icon">⭐</div>
-          <h3>Real Reviews</h3>
-          <p>Ratings pulled from Google so you see honest feedback from real customers in your community.</p>
+        <div class="trust-item">
+          <div class="trust-icon">📍</div>
+          <div class="trust-text">
+            <strong>100% Local</strong>
+            <span>Every business serves the Sioux Falls area</span>
+          </div>
         </div>
-        <div class="why-card">
-          <div class="why-icon">📱</div>
-          <h3>One Tap to Call</h3>
-          <p>Find who you need and call them directly from your phone. No accounts, no forms, no hassle.</p>
+        <div class="trust-item">
+          <div class="trust-icon">📱</div>
+          <div class="trust-text">
+            <strong>One Tap to Call</strong>
+            <span>Call any pro directly from your phone</span>
+          </div>
         </div>
-        <div class="why-card">
-          <div class="why-icon">🆓</div>
-          <h3>Always Free to Search</h3>
-          <p>Finding a pro is always free. Browse, compare, and call as many businesses as you want.</p>
+        <div class="trust-item">
+          <div class="trust-icon">🆓</div>
+          <div class="trust-text">
+            <strong>Free to Search</strong>
+            <span>Finding a pro is always completely free</span>
+          </div>
         </div>
       </div>
     </div>
@@ -160,11 +524,28 @@
   <!-- ── ADVERTISE BANNER ───────────────────────────────────────── -->
   <section class="advertise-banner">
     <div class="container advertise-inner">
-      <div class="advertise-text">
+      <div class="adv-left">
+        <div class="adv-badge">Limited Spots Available</div>
         <h2>Own a local business?</h2>
-        <p>Get featured on page one and be the first pro customers see when they search your category. Page 1 spots start at just $30/month.</p>
+        <p>Only featured businesses with 4.5+ star ratings. Page 1 spots start at $30/month. Premium spotlight from $50/month. Only 10 featured spots per category.</p>
       </div>
-      <a href="advertise.html" class="btn-white">Get Featured Today</a>
+      <div class="adv-right">
+        <div class="adv-price-cards">
+          <div class="adv-price-card">
+            <div class="adv-price-name">Page 1 Featured</div>
+            <div class="adv-price-amt">$30<span>/mo</span></div>
+          </div>
+          <div class="adv-price-card highlight">
+            <div class="adv-price-name">Premium Spotlight</div>
+            <div class="adv-price-amt">$50<span>/mo</span></div>
+          </div>
+          <div class="adv-price-card">
+            <div class="adv-price-name">Page 2 Listing</div>
+            <div class="adv-price-amt">$15<span>/mo</span></div>
+          </div>
+        </div>
+        <a href="advertise.html" class="btn-white-lg">Get Featured Today →</a>
+      </div>
     </div>
   </section>
 
@@ -173,46 +554,45 @@
     <div class="container footer-inner">
       <div class="footer-brand">
         <a href="index.html" class="logo logo-white">
-          <svg width="28" height="28" viewBox="0 0 36 36" fill="none">
-            <rect width="36" height="36" rx="10" fill="#fff" fill-opacity="0.15"/>
-            <path d="M10 18h16M18 10v16" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
-          </svg>
+          <div class="logo-icon logo-icon-white">
+            <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
+              <path d="M14 2L26 10V26H18V18H10V26H2V10L14 2Z" fill="white" opacity="0.8"/>
+            </svg>
+          </div>
           <span>SiouxFalls<strong>Pros</strong></span>
         </a>
         <p>Connecting Sioux Falls With Local Professionals</p>
+        <p style="margin-top:8px;font-size:13px;opacity:0.5">© 2025 SiouxFallsPros.com — Sioux Falls, South Dakota</p>
       </div>
       <div class="footer-links">
         <div class="footer-col">
-          <h4>Categories</h4>
-          <a href="category.html?cat=plumbers">Plumbers</a>
-          <a href="category.html?cat=electricians">Electricians</a>
-          <a href="category.html?cat=hvac">HVAC</a>
-          <a href="category.html?cat=roofers">Roofers</a>
-          <a href="category.html?cat=painters">Painters</a>
+          <h4>Home Services</h4>
+          <a href="category.html?cat=home&sub=plumbers">Plumbers</a>
+          <a href="category.html?cat=home&sub=electricians">Electricians</a>
+          <a href="category.html?cat=home&sub=hvac">HVAC</a>
+          <a href="category.html?cat=home&sub=roofers">Roofers</a>
+          <a href="category.html?cat=home&sub=lawncare">Lawn Care</a>
         </div>
         <div class="footer-col">
-          <h4>More Services</h4>
-          <a href="category.html?cat=lawncare">Lawn Care</a>
-          <a href="category.html?cat=contractors">Contractors</a>
-          <a href="category.html?cat=handyman">Handyman</a>
-          <a href="category.html?cat=flooring">Flooring</a>
-          <a href="category.html?cat=cleaning">Cleaning</a>
+          <h4>Popular Categories</h4>
+          <a href="subcategory.html?cat=auto">Auto & Mechanics</a>
+          <a href="subcategory.html?cat=health">Health & Dentists</a>
+          <a href="subcategory.html?cat=food">Restaurants</a>
+          <a href="subcategory.html?cat=legal">Attorneys</a>
+          <a href="subcategory.html?cat=beauty">Salons & Spas</a>
         </div>
         <div class="footer-col">
           <h4>Business Owners</h4>
           <a href="advertise.html">Advertise With Us</a>
-          <a href="advertise.html">Claim Your Listing</a>
           <a href="advertise.html">Pricing</a>
+          <a href="advertise.html">Claim Your Listing</a>
+          <a href="advertise.html#contact">Contact Us</a>
         </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="container">
-        <p>© 2025 SiouxFallsPros.com — Sioux Falls, South Dakota</p>
       </div>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/maps.js"></script>
 </body>
 </html>
