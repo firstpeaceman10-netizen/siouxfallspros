@@ -12,6 +12,7 @@ function initMap() {
     mapTypeControl: false, streetViewControl: false,
   });
   service    = new google.maps.places.PlacesService(map);
+  window.placesService = service;
   infoWindow = new google.maps.InfoWindow();
 }
 
