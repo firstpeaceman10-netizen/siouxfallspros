@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SiouxFallsPros — Business Finder Tool</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet"/>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1KwC-xwi7TQI5DvEGU6LZ-FtX-nyWYvI&libraries=places" async defer></script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --blue:#1a5f9e;--amber:#c8773a;--green:#2e7d32;--red:#c62828;
+      --bg:#f8fafc;--border:#e4ddd5;--text:#1c1f26;--text-2:#445566;--text-3:#7a8899;
+    }
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+
+    /* Header */
+    .header{background:linear-gradient(135deg,#1c2e1c,#3a6b3a);padding:20px 32px;display:flex;align-items:center;justify-content:space-between}
+    .header h1{font-family:'Poppins',sans-serif;font-size:22px;font-weight:800;color:white}
+    .header p{font-size:13px;color:rgba(255,255,255,.7);margin-top:2px}
+    .header-badge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:6px 14px;font-size:12px;font-weight:700;color:white}
+
+    /* Layout */
+    .layout{display:grid;grid-template-columns:320px 1fr;min-height:calc(100vh - 80px)}
+
+    /* Sidebar */
+    .sidebar{background:white;border-right:1px solid var(--border);padding:24px;overflow-y:auto}
+    .sidebar h2{font-family:'Poppins',sans-serif;font-size:16px;font-weight:800;margin-bottom:16px}
+    .form-group{margin-bottom:14px}
+    .form-group label{display:block;font-size:12px;font-weight:700;color:var(--text-2);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
+    .form-group select,
+    .form-group input{width:100%;padding:10px 12px;border:2px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;outline:none;transition:border-color .15s;background:white}
+    .form-group select:focus,
+    .form-group input:focus{border-color:var(--amber)}
+
+    .btn-scan{width:100%;padding:14px;background:linear-gradient(135deg,var(--amber),#a85f28);color:white;border:none;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s;margin-top:8px}
+    .btn-scan:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(200,119,58,.4)}
+    .btn-scan:disabled{opacity:.5;cursor:not-allowed;transform:none}
+
+    .btn-export{width:100%;padding:12px;background:var(--green);color:white;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s;margin-top:8px}
+    .btn-export:hover{background:#245f28}
+    .btn-export:disabled{opacity:.4;cursor:not-allowed}
+
+    .btn-clear{width:100%;padding:10px;background:white;color:var(--red);border:2px solid var(--red);border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;margin-top:6px}
+
+    /* Progress */
+    .progress-box{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:14px;margin-top:16px;display:none}
+    .progress-bar{height:8px;background:#e4ddd5;border-radius:4px;overflow:hidden;margin:8px 0}
+    .progress-fill{height:100%;background:linear-gradient(90deg,var(--amber),var(--blue));border-radius:4px;transition:width .3s;width:0%}
+    .progress-text{font-size:12px;color:var(--text-3)}
+    .progress-status{font-size:13px;font-weight:600;color:var(--text)}
+
+    /* Stats */
+    .stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}
+    .stat{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:12px;text-align:center}
+    .stat-num{font-size:22px;font-weight:900;font-family:'Poppins',sans-serif;color:var(--blue)}
+    .stat-num.green{color:var(--green)}
+    .stat-num.amber{color:var(--amber)}
+    .stat-label{font-size:11px;color:var(--text-3);margin-top:2px}
+
+    /* Category filter */
+    .cat-filters{display:flex;flex-direction:column;gap:4px;margin-top:8px;max-height:200px;overflow-y:auto}
+    .cat-filter{display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer;padding:4px 0}
+    .cat-filter input{width:14px;height:14px;cursor:pointer;accent-color:var(--amber)}
+
+    /* Main content */
+    .main{padding:24px;overflow-y:auto}
+    .main-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px}
+    .main-header h2{font-family:'Poppins',sans-serif;font-size:18px;font-weight:800}
+    .search-filter{display:flex;align-items:center;gap:10px}
+    .search-filter input{padding:8px 14px;border:2px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;outline:none;width:240px}
+    .search-filter input:focus{border-color:var(--blue)}
+    .filter-select{padding:8px 12px;border:2px solid var(--border);border-radius:8px;font-size:13px;font-family:inherit;outline:none;cursor:pointer}
+
+    /* Table */
+    .table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:12px;background:white}
+    table{width:100%;border-collapse:collapse;font-size:13px}
+    th{padding:12px 14px;text-align:left;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);background:var(--bg);border-bottom:1px solid var(--border);white-space:nowrap}
+    td{padding:12px 14px;border-bottom:1px solid var(--border);vertical-align:top}
+    tr:last-child td{border-bottom:none}
+    tr:hover td{background:#fafaf8}
+
+    .rating-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:12px;font-size:11px;font-weight:700}
+    .rating-badge.premium{background:#fff8e1;color:#c8773a}
+    .rating-badge.standard{background:#e8f5e9;color:#2e7d32}
+    .rating-badge.low{background:#fff3e0;color:#e65100}
+
+    .cat-pill{display:inline-block;padding:2px 8px;background:var(--bg);border:1px solid var(--border);border-radius:12px;font-size:11px;color:var(--text-2)}
+
+    .status-pill{display:inline-block;padding:2px 8px;border-radius:12px;font-size:11px;font-weight:700}
+    .status-pill.eligible{background:#e3f2fd;color:var(--blue)}
+    .status-pill.spotlight{background:#fff8e1;color:var(--amber)}
+
+    .btn-add{padding:5px 12px;background:var(--blue);color:white;border:none;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit}
+    .btn-add:hover{background:#134a7d}
+    .btn-add.added{background:var(--green)}
+
+    /* Empty state */
+    .empty{text-align:center;padding:80px 20px;color:var(--text-3)}
+    .empty-icon{font-size:56px;margin-bottom:16px}
+    .empty h3{font-size:18px;font-weight:700;color:var(--text-2);margin-bottom:8px}
+
+    /* Notification */
+    .notif{position:fixed;bottom:24px;right:24px;background:var(--green);color:white;padding:12px 20px;border-radius:10px;font-size:14px;font-weight:700;box-shadow:0 4px 20px rgba(0,0,0,.2);transform:translateY(100px);transition:transform .3s;z-index:999}
+    .notif.show{transform:translateY(0)}
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div>
+      <h1>🔍 SiouxFallsPros — Business Finder</h1>
+      <p>Scan Sioux Falls for qualifying businesses · Audit for duplicates · Export to CSV</p>
+    </div>
+    <div class="header-badge" id="totalBadge">0 businesses found</div>
+  </div>
+
+  <div class="layout">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h2>Scan Settings</h2>
+
+      <div class="form-group">
+        <label>City</label>
+        <input type="text" id="cityInput" value="Sioux Falls, SD" placeholder="City, State"/>
+      </div>
+
+      <div class="form-group">
+        <label>Minimum Rating</label>
+        <select id="minRating">
+          <option value="3.0">3.0+ stars (all eligible)</option>
+          <option value="3.5">3.5+ stars</option>
+          <option value="4.0">4.0+ stars</option>
+          <option value="4.5" selected>4.5+ stars (premium only)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Search Radius</label>
+        <select id="searchRadius">
+          <option value="5000">5km — City center</option>
+          <option value="10000" selected>10km — Full city</option>
+          <option value="20000">20km — Metro area</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Categories to Scan</label>
+        <div class="cat-filters" id="catFilters"></div>
+      </div>
+
+      <button class="btn-scan" id="scanBtn" onclick="startScan()">
+        🔍 Start Scanning Sioux Falls
+      </button>
+
+      <div class="progress-box" id="progressBox">
+        <div class="progress-status" id="progressStatus">Initializing…</div>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-text" id="progressText">0 of 0 categories scanned</div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="stat-num" id="statTotal">0</div><div class="stat-label">Total Found</div></div>
+        <div class="stat"><div class="stat-num green" id="statEligible">0</div><div class="stat-label">Eligible</div></div>
+        <div class="stat"><div class="stat-num amber" id="statSpotlight">0</div><div class="stat-label">Spotlight Ready</div></div>
+        <div class="stat"><div class="stat-num" id="statDupes" style="color:var(--red)">0</div><div class="stat-label">Duplicates Removed</div></div>
+      </div>
+
+      <button class="btn-export" id="exportBtn" onclick="exportCSV()" disabled>
+        📥 Export to CSV for Mailchimp
+      </button>
+      <button class="btn-clear" onclick="clearResults()">🗑️ Clear Results</button>
+    </div>
+
+    <!-- Main content -->
+    <div class="main">
+      <div class="main-header">
+        <h2 id="resultsTitle">Ready to scan</h2>
+        <div class="search-filter">
+          <input type="text" id="searchFilter" placeholder="Search businesses…" oninput="filterTable()"/>
+          <select class="filter-select" id="ratingFilter" onchange="filterTable()">
+            <option value="all">All ratings</option>
+            <option value="spotlight">⭐ 4.5+ Spotlight</option>
+            <option value="standard">✓ 3.0-4.4 Standard</option>
+          </select>
+          <select class="filter-select" id="catFilter" onchange="filterTable()">
+            <option value="all">All categories</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="tableContainer">
+        <div class="empty">
+          <div class="empty-icon">🔍</div>
+          <h3>Ready to scan Sioux Falls</h3>
+          <p>Select your settings and click Start Scanning to find all qualifying businesses</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="notif" id="notif"></div>
+
+  <script>
+    // ── Categories to scan ──────────────────────────────────────────
+    const SCAN_CATEGORIES = [
+      {key:'plumbers',     label:'Plumbers',           type:'plumber'},
+      {key:'electricians', label:'Electricians',        type:'electrician'},
+      {key:'hvac',         label:'HVAC',                type:'general_contractor', keyword:'HVAC heating cooling'},
+      {key:'roofers',      label:'Roofers',             type:'roofing_contractor'},
+      {key:'painters',     label:'Painters',            type:'painter', keyword:'painting contractor'},
+      {key:'lawncare',     label:'Lawn Care',           type:'lawn_care_service'},
+      {key:'contractors',  label:'Contractors',         type:'general_contractor'},
+      {key:'handyman',     label:'Handyman',            type:'general_contractor', keyword:'handyman'},
+      {key:'cleaning',     label:'Cleaning Services',   type:'home_goods_store', keyword:'cleaning service'},
+      {key:'garage',       label:'Garage Door',         type:'general_contractor', keyword:'garage door repair'},
+      {key:'pestcontrol',  label:'Pest Control',        type:'general_contractor', keyword:'pest control exterminator'},
+      {key:'mechanics',    label:'Auto Mechanics',      type:'car_repair'},
+      {key:'autobody',     label:'Auto Body',           type:'car_repair', keyword:'auto body collision'},
+      {key:'tires',        label:'Tire Shops',          type:'tire_dealer'},
+      {key:'towing',       label:'Towing',              type:'moving_company', keyword:'towing roadside'},
+      {key:'dentists',     label:'Dentists',            type:'dentist'},
+      {key:'doctors',      label:'Doctors',             type:'doctor'},
+      {key:'chiropractic', label:'Chiropractors',       type:'physiotherapist', keyword:'chiropractor'},
+      {key:'eyecare',      label:'Eye Care',            type:'optometrist'},
+      {key:'mentalhealth', label:'Mental Health',       type:'doctor', keyword:'therapist counseling mental health'},
+      {key:'urgentcare',   label:'Urgent Care',         type:'hospital', keyword:'urgent care walk in clinic'},
+      {key:'attorneys',    label:'Attorneys',           type:'lawyer'},
+      {key:'accountants',  label:'Accountants',         type:'accounting', keyword:'accountant tax'},
+      {key:'insurance',    label:'Insurance',           type:'insurance_agency'},
+      {key:'restaurants',  label:'Restaurants',         type:'restaurant'},
+      {key:'pizza',        label:'Pizza',               type:'meal_delivery', keyword:'pizza'},
+      {key:'mexican',      label:'Mexican Food',        type:'restaurant', keyword:'mexican restaurant'},
+      {key:'breakfast',    label:'Breakfast',           type:'cafe', keyword:'breakfast brunch'},
+      {key:'bars',         label:'Bars',                type:'bar'},
+      {key:'bakeries',     label:'Bakeries',            type:'bakery'},
+      {key:'coffee',       label:'Coffee Shops',        type:'cafe'},
+      {key:'hairsalons',   label:'Hair Salons',         type:'beauty_salon'},
+      {key:'barbershops',  label:'Barbershops',         type:'hair_care', keyword:'barbershop barber'},
+      {key:'nailsalons',   label:'Nail Salons',         type:'beauty_salon', keyword:'nail salon'},
+      {key:'spas',         label:'Spas & Massage',      type:'spa'},
+      {key:'gyms',         label:'Gyms',                type:'gym'},
+      {key:'yoga',         label:'Yoga Studios',        type:'gym', keyword:'yoga studio'},
+      {key:'venues',       label:'Event Venues',        type:'event_venue'},
+      {key:'catering',     label:'Catering',            type:'meal_delivery', keyword:'catering'},
+      {key:'escape',       label:'Escape Rooms',        type:'amusement_park', keyword:'escape room'},
+      {key:'realtors',     label:'Realtors',            type:'real_estate_agency'},
+      {key:'mortgage',     label:'Mortgage',            type:'finance', keyword:'mortgage lender'},
+      {key:'petvets',      label:'Veterinarians',       type:'veterinary_care'},
+      {key:'petgrooming',  label:'Pet Grooming',        type:'pet_store', keyword:'pet grooming'},
+      {key:'daycares',     label:'Daycares',            type:'child_care_agency'},
+      {key:'photographers',label:'Photographers',       type:'photographer'},
+      {key:'movers',       label:'Movers',              type:'moving_company'},
+      {key:'locksmiths',   label:'Locksmiths',          type:'locksmith'},
+      {key:'florists',     label:'Florists',            type:'florist'},
+      {key:'electronics',  label:'Electronics Repair',  type:'electronics_store', keyword:'phone repair electronics'},
+    ];
+
+    // ── State ───────────────────────────────────────────────────────
+    let allBusinesses = [];
+    let filteredBusinesses = [];
+    let placesService = null;
+    let scanning = false;
+    let scanProgress = 0;
+    let dupesRemoved = 0;
+
+    // ── Build category checkboxes ───────────────────────────────────
+    function buildCatFilters() {
+      const container = document.getElementById('catFilters');
+      SCAN_CATEGORIES.forEach(cat => {
+        const label = document.createElement('label');
+        label.className = 'cat-filter';
+        label.innerHTML = `<input type="checkbox" value="${cat.key}" checked/> ${cat.label}`;
+        container.appendChild(label);
+      });
+    }
+
+    // ── Init Google Maps ────────────────────────────────────────────
+    function initMap() {
+      const map = new google.maps.Map(document.createElement('div'));
+      placesService = new google.maps.places.PlacesService(map);
+      buildCatFilters();
+    }
+    window.initMap = initMap;
+
+    // ── Start scan ──────────────────────────────────────────────────
+    async function startScan() {
+      if (!placesService) { showNotif('Google Maps not loaded yet — try again in a moment'); return; }
+
+      const city      = document.getElementById('cityInput').value || 'Sioux Falls, SD';
+      const minRating = parseFloat(document.getElementById('minRating').value);
+      const radius    = parseInt(document.getElementById('searchRadius').value);
+
+      const checkedCats = Array.from(document.querySelectorAll('#catFilters input:checked'))
+        .map(cb => SCAN_CATEGORIES.find(c => c.key === cb.value))
+        .filter(Boolean);
+
+      if (checkedCats.length === 0) { showNotif('Please select at least one category'); return; }
+
+      // Geocode city
+      const geocoder = new google.maps.Geocoder();
+      geocoder.geocode({ address: city }, async (results, status) => {
+        if (status !== 'OK') { showNotif('Could not find that city — try again'); return; }
+
+        const location = results[0].geometry.location;
+        allBusinesses  = [];
+        dupesRemoved   = 0;
+        scanning       = true;
+        scanProgress   = 0;
+
+        document.getElementById('scanBtn').disabled = true;
+        document.getElementById('scanBtn').textContent = '⏳ Scanning…';
+        document.getElementById('progressBox').style.display = 'block';
+        document.getElementById('exportBtn').disabled = true;
+
+        for (let i = 0; i < checkedCats.length; i++) {
+          const cat = checkedCats[i];
+          const pct = Math.round((i / checkedCats.length) * 100);
+
+          document.getElementById('progressFill').style.width   = pct + '%';
+          document.getElementById('progressStatus').textContent = `Scanning ${cat.label}…`;
+          document.getElementById('progressText').textContent   = `${i} of ${checkedCats.length} categories`;
+
+          await scanCategory(cat, location, radius, minRating);
+          await sleep(300); // Respect API rate limits
+        }
+
+        // Done
+        document.getElementById('progressFill').style.width   = '100%';
+        document.getElementById('progressStatus').textContent = '✅ Scan complete!';
+        document.getElementById('progressText').textContent   = `${checkedCats.length} categories scanned`;
+        document.getElementById('scanBtn').disabled           = false;
+        document.getElementById('scanBtn').textContent        = '🔍 Scan Again';
+        document.getElementById('exportBtn').disabled         = false;
+        scanning = false;
+
+        renderTable();
+        updateStats();
+        showNotif(`✅ Found ${allBusinesses.length} businesses!`);
+      });
+    }
+
+    // ── Scan a single category ──────────────────────────────────────
+    function scanCategory(cat, location, radius, minRating) {
+      return new Promise(resolve => {
+        const request = {
+          location,
+          radius,
+          type: cat.type,
+          keyword: cat.keyword || cat.label,
+        };
+
+        placesService.nearbySearch(request, (results, status) => {
+          if (status === google.maps.places.PlacesServiceStatus.OK && results) {
+            results.forEach(place => {
+              if (!place.rating || place.rating < minRating) return;
+
+              // Dedup by place_id
+              const exists = allBusinesses.find(b => b.place_id === place.place_id);
+              if (exists) {
+                dupesRemoved++;
+                return;
+              }
+
+              allBusinesses.push({
+                place_id:    place.place_id,
+                name:        place.name,
+                rating:      place.rating || 0,
+                reviews:     place.user_ratings_total || 0,
+                address:     place.vicinity || '',
+                category:    cat.key,
+                categoryLabel: cat.label,
+                phone:       '',
+                website:     '',
+                eligible:    place.rating >= 4.5 ? 'spotlight' : 'standard',
+                added:       false,
+              });
+            });
+          }
+          resolve();
+        });
+      });
+    }
+
+    // ── Render table ────────────────────────────────────────────────
+    function renderTable() {
+      const search     = document.getElementById('searchFilter').value.toLowerCase();
+      const ratingF    = document.getElementById('ratingFilter').value;
+      const catF       = document.getElementById('catFilter').value;
+
+      filteredBusinesses = allBusinesses.filter(b => {
+        if (search && !b.name.toLowerCase().includes(search) && !b.address.toLowerCase().includes(search)) return false;
+        if (ratingF === 'spotlight' && b.eligible !== 'spotlight') return false;
+        if (ratingF === 'standard'  && b.eligible !== 'standard')  return false;
+        if (catF !== 'all' && b.category !== catF) return false;
+        return true;
+      });
+
+      // Sort by rating desc
+      filteredBusinesses.sort((a,b) => b.rating - a.rating);
+
+      // Update category filter dropdown
+      const cats = [...new Set(allBusinesses.map(b => b.category))].sort();
+      const catSelect = document.getElementById('catFilter');
+      const currentVal = catSelect.value;
+      catSelect.innerHTML = '<option value="all">All categories</option>';
+      cats.forEach(c => {
+        const cat = SCAN_CATEGORIES.find(x => x.key === c);
+        catSelect.innerHTML += `<option value="${c}" ${c===currentVal?'selected':''}>${cat?.label || c}</option>`;
+      });
+
+      document.getElementById('resultsTitle').textContent =
+        `${filteredBusinesses.length} businesses found${search || ratingF !== 'all' || catF !== 'all' ? ' (filtered)' : ''}`;
+
+      if (filteredBusinesses.length === 0) {
+        document.getElementById('tableContainer').innerHTML = `
+          <div class="empty">
+            <div class="empty-icon">${allBusinesses.length > 0 ? '🔍' : '📍'}</div>
+            <h3>${allBusinesses.length > 0 ? 'No results match your filter' : 'No businesses found yet'}</h3>
+            <p>${allBusinesses.length > 0 ? 'Try adjusting your filters' : 'Click Start Scanning to begin'}</p>
+          </div>`;
+        return;
+      }
+
+      const rows = filteredBusinesses.map((b, i) => `
+        <tr id="row-${i}">
+          <td><strong>${b.name}</strong></td>
+          <td>
+            <span class="rating-badge ${b.eligible === 'spotlight' ? 'premium' : 'standard'}">
+              ★ ${b.rating.toFixed(1)}
+            </span>
+            <span style="font-size:11px;color:var(--text-3);margin-left:4px">(${b.reviews})</span>
+          </td>
+          <td><span class="cat-pill">${b.categoryLabel}</span></td>
+          <td style="font-size:12px;color:var(--text-3);max-width:200px">${b.address}</td>
+          <td>
+            <span class="status-pill ${b.eligible}">
+              ${b.eligible === 'spotlight' ? '⭐ Spotlight Ready' : '✓ Standard'}
+            </span>
+          </td>
+          <td>
+            <button class="btn-add ${b.added ? 'added' : ''}" onclick="markAdded(${i})" ${b.added?'disabled':''}>
+              ${b.added ? '✓ Added' : '+ Add to List'}
+            </button>
+          </td>
+        </tr>`).join('');
+
+      document.getElementById('tableContainer').innerHTML = `
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Business Name</th>
+                <th>Rating</th>
+                <th>Category</th>
+                <th>Address</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>${rows}</tbody>
+          </table>
+        </div>`;
+
+      document.getElementById('totalBadge').textContent = `${allBusinesses.length} businesses found`;
+    }
+
+    // ── Update stats ────────────────────────────────────────────────
+    function updateStats() {
+      const total     = allBusinesses.length;
+      const spotlight = allBusinesses.filter(b => b.eligible === 'spotlight').length;
+      const standard  = allBusinesses.filter(b => b.eligible === 'standard').length;
+
+      document.getElementById('statTotal').textContent    = total;
+      document.getElementById('statEligible').textContent = standard;
+      document.getElementById('statSpotlight').textContent= spotlight;
+      document.getElementById('statDupes').textContent    = dupesRemoved;
+    }
+
+    // ── Filter table ────────────────────────────────────────────────
+    function filterTable() { if (allBusinesses.length > 0) renderTable(); }
+
+    // ── Mark as added ───────────────────────────────────────────────
+    function markAdded(i) {
+      filteredBusinesses[i].added = true;
+      const origIdx = allBusinesses.findIndex(b => b.place_id === filteredBusinesses[i].place_id);
+      if (origIdx > -1) allBusinesses[origIdx].added = true;
+      renderTable();
+      showNotif(`✅ ${filteredBusinesses[i].name} marked as added`);
+    }
+
+    // ── Export to CSV ───────────────────────────────────────────────
+    function exportCSV() {
+      if (allBusinesses.length === 0) return;
+
+      const headers = ['Business Name','Rating','Reviews','Category','Address','Spotlight Eligible','Email Template'];
+      const rows    = allBusinesses.map(b => [
+        `"${b.name.replace(/"/g,'""')}"`,
+        b.rating.toFixed(1),
+        b.reviews,
+        b.categoryLabel,
+        `"${b.address.replace(/"/g,'""')}"`,
+        b.eligible === 'spotlight' ? 'YES - 4.5+ Stars' : 'Standard',
+        b.eligible === 'spotlight'
+          ? `"Hi ${b.name} — your 4.5 star rating qualifies you for our Premium Spotlight on SiouxFallsPros.com"`
+          : `"Hi ${b.name} — we have listed your business for free on SiouxFallsPros.com"`,
+      ]);
+
+      const csv  = [headers, ...rows].map(r => r.join(',')).join('\n');
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const url  = URL.createObjectURL(blob);
+      const a    = document.createElement('a');
+      a.href     = url;
+      a.download = `sioux-falls-businesses-${new Date().toISOString().split('T')[0]}.csv`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showNotif(`📥 Exported ${allBusinesses.length} businesses to CSV`);
+    }
+
+    // ── Clear results ───────────────────────────────────────────────
+    function clearResults() {
+      allBusinesses  = [];
+      filteredBusinesses = [];
+      dupesRemoved   = 0;
+      document.getElementById('tableContainer').innerHTML = `
+        <div class="empty">
+          <div class="empty-icon">🔍</div>
+          <h3>Ready to scan Sioux Falls</h3>
+          <p>Select your settings and click Start Scanning</p>
+        </div>`;
+      document.getElementById('progressBox').style.display = 'none';
+      document.getElementById('exportBtn').disabled = true;
+      document.getElementById('totalBadge').textContent = '0 businesses found';
+      document.getElementById('resultsTitle').textContent = 'Ready to scan';
+      updateStats();
+    }
+
+    // ── Notification ────────────────────────────────────────────────
+    function showNotif(msg) {
+      const n = document.getElementById('notif');
+      n.textContent = msg;
+      n.classList.add('show');
+      setTimeout(() => n.classList.remove('show'), 3000);
+    }
+
+    function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+  </script>
+</body>
+</html>
